@@ -30,8 +30,7 @@ pw="$child"
 root_key="$root.key"
 root_pem="$root.pem"
 root_key_nopass="$root-nopass.key"
-# TODO parameterize
-root_subj="/C=US/ST=TN/L=Nashville/O=Fixme/OU=Ops/CN=$root\_ca"
+root_subj="/C={{ vault.self_signed_cert.country }}/ST={{ vault.self_signed_cert.state }}/L={{ vault.self_signed_cert.city }}/O={{ vault.self_signed_cert.org }}/OU={{ vault.self_signed_cert.org_unit }}/CN=$root\_ca"
 root_p12="$root.p12"
 
 ###
@@ -72,7 +71,7 @@ child_name="${root}_${child}"
 child_key="$child_name.key"
 child_pem="$child_name.pem"
 child_csr="$child_name.csr"
-child_subj="/C=US/ST=TN/L=Nashville/O=Stratasan/OU=Ops/CN=$child_name"
+child_subj="/C={{ vault.self_signed_cert.country }}/ST={{ vault.self_signed_cert.state }}/L={{ vault.self_signed_cert.city }}/O={{ vault.self_signed_cert.org }}/OU={{ vault.self_signed_cert.org_unit }}/CN=$child_name"
 child_p12="$child_name.p12"
 child_jks="$child_name.jks"
 

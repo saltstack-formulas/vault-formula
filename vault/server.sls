@@ -1,24 +1,24 @@
-#TODO only do this if bool param 'self_signed_cert: true'
+{% from "vault/map.jinja" import vault with context %}
+{% if vault.self_signed_cert.enabled %}
 /usr/local/bin/self-cert-gen.sh:
   file.managed:
-    - source: salt://vault/templates/cert-gen.sh.jinja
+    - source: salt://vault/files/cert-gen.sh.jinja
     - template: jinja
     - user: root
     - group: root
     - mode: 644
 
-#TODO only do this if bool param 'self_signed_cert: true'
-#TODO parameterize localhost and 'vault' password
-generate SSL certs:
+generate self signed SSL certs:
   cmd.run:
-    - name: bash /usr/local/bin/cert-gen.sh localhost vault
+    - name: bash /usr/local/bin/cert-gen.sh {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
     - cwd: /etc/vault
     - require:
       - file: /usr/local/bin/self-cert-gen.sh
+{% endif %}
 
 /etc/vault/config/server.hcl:
   file.managed:
-    - source: salt://vault/templates/server.hcl.jinja
+    - source: salt://vault/files/server.hcl.jinja
     - template: jinja
     - user: root
     - group: root
@@ -26,7 +26,7 @@ generate SSL certs:
 
 /etc/init/vault.conf:
   file.managed:
-    - source: salt://vault/templates/vault.conf.jinja
+    - source: salt://vault/files/vault.conf.jinja
     - template: jinja
     - user: root
     - group: root
@@ -36,6 +36,8 @@ vault:
   service.running:
     - enable: True
     - require:
-      - cmd: generate SSL certs #todo only if bool present
+      {% if vault.self_signed_cert.enabled %}
+      - cmd: generate self signed SSL certs
+      {% endif %}
       - file: /etc/vault/config/server.hcl
       - file: /etc/init/vault.conf
