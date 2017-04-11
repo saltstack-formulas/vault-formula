@@ -1,0 +1,16 @@
+#todo parameterize
+backend "s3" {
+  bucket = "fixme"
+}
+
+# TODO parameterize
+listener "tcp" {
+  address = "0.0.0.0:8200"
+  tls_disable = 0 #todo - only include if bool from server.sls found
+  tls_cert_file = "/etc/vault/localhost.pem" #todo - only include if bool from server.sls found
+  tls_key_file = "/etc/vault/localhost-nopass.key" #todo - only include if bool from server.sls found
+}
+
+#todo parameterize
+default_lease_ttl="4380h"
+max_lease_ttl="43800h"
