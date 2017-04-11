@@ -1,0 +1,7 @@
+vault:
+  vault_version: 0.7.0
+  skip_verify: true
+  protocol: https
+  hostname: vault.hostname.com
+  port: 8200
+
