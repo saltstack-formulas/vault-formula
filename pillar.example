@@ -1,5 +1,6 @@
 vault:
   vault_version: 0.7.0
+  source_hash: c6d97220e75335f75bd6f603bb23f1f16fe8e2a9d850ba59599b1a0e4d067aaa
   listen_protocol: tcp
   listen_port: 8200
   listen_address: 0.0.0.0
