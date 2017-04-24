@@ -1,10 +1,10 @@
 {% from "vault/map.jinja" import vault with context %}
 
-{% if vault.s3_backend %}
+{%- if vault.backend and vault.backend.type == "s3" %}
 backend "s3" {
-  bucket = "{{ vault.s3_backend.bucket }}"
+  bucket = "{{ vault.backend.bucket }}"
 }
-{% endif %}
+{% endif -%}
 
 listener "{{ vault.listen_protocol }}" {
   address = "{{ vault.listen_address }}:{{ vault.listen_port }}"
@@ -13,12 +13,12 @@ listener "{{ vault.listen_protocol }}" {
   tls_cert_file = "/etc/vault/{{ vault.self_signed_cert.hostname }}.pem"
   tls_key_file = "/etc/vault/{{ vault.self_signed_cert.hostname }}-nopass.key"
   {% else %}
-  {% if vault.tls_cert_file %}
+  {%- if vault.tls_cert_file %}
   tls_cert_file = "{{ vault.tls_cert_file }}"
-  {% endif %}
-  {% if vault.tls_key_file %}
-  tls_key_file = "{{ vault.tls_cert_file }}"
-  {% endif %}
+  {% endif -%}
+  {%- if vault.tls_key_file %}
+  tls_key_file = "{{ vault.tls_key_file }}"
+  {% endif -%}
   {% endif %}
 }
 

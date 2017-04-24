@@ -1,0 +1,38 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+  privileged: true
+
+verifier:
+  name: inspec
+  format: doc
+
+provisioner:
+  name: salt_solo
+  log_level: debug
+  require_chef: false
+  formula: vault
+
+platforms:
+  - name: ubuntu-14.04
+  - name: amazonlinux
+    driver_config:
+      image: amazonlinux:latest
+      platform: rhel
+      run_command: /sbin/init
+
+suites:
+  - name: default
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - vault
+  - name: server
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - vault
+            - vault.server
