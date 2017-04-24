@@ -4,7 +4,7 @@ vault:
   listen_port: 8200
   listen_address: 0.0.0.0
   strict_tls: 0
-  default_lease_ttl: '4380h'
-  max_lease_ttl: '43800h'
+  default_lease_ttl: 4380h
+  max_lease_ttl: 43800h
   s3_backend:
-    bucket: 'com-foo-vault'
+    bucket: com-foo-vault

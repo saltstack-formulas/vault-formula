@@ -16,6 +16,20 @@ generate self signed SSL certs:
       - file: /usr/local/bin/self-cert-gen.sh
 {% endif %}
 
+/etc/vault:
+  file.directory:
+    - user: root
+    - group: root
+    - mode: 755
+
+/etc/vault/config:
+  file.directory:
+    - user: root
+    - group: root
+    - mode: 755
+    - require:
+      - file: /etc/vault
+
 /etc/vault/config/server.hcl:
   file.managed:
     - source: salt://vault/files/server.hcl.jinja
@@ -23,10 +37,12 @@ generate self signed SSL certs:
     - user: root
     - group: root
     - mode: 644
+    - require:
+      - file: /etc/vault/config
 
 /etc/init/vault.conf:
   file.managed:
-    - source: salt://vault/files/vault.conf.jinja
+    - source: salt://vault/files/vault_upstart.conf.jinja
     - template: jinja
     - user: root
     - group: root

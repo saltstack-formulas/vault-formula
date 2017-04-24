@@ -1,0 +1,14 @@
+vault:
+  vault_version: 0.7.0
+  listen_protocol: tcp
+  listen_port: 8200
+  listen_address: 0.0.0.0
+  strict_tls: 0
+  service: upstart
+  tls_cert_file: {}
+  tls_key_file: {}
+  default_lease_ttl: 24h
+  max_lease_ttl: 24h
+  self_signed_cert:
+    enabled: false
+  backend: {}
