@@ -4,13 +4,14 @@ vault:
   listen_port: 8200
   listen_address: 0.0.0.0
   strict_tls: 0
+  service: upstart
   tls_cert_file: {}
   tls_key_file: {}
-  default_lease_ttl: 4380h
-  max_lease_ttl: 43800h
+  default_lease_ttl: 24h
+  max_lease_ttl: 24h
   self_signed_cert:
     enabled: false
   backend: {}
   dev_mode: true
   service:
-    type: upstart
+    type: systemd
