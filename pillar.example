@@ -1,10 +1,16 @@
 vault:
-  vault_version: 0.7.0
+  version: 0.7.0
   listen_protocol: tcp
   listen_port: 8200
   listen_address: 0.0.0.0
   strict_tls: 0
+  tls_cert_file: {}
+  tls_key_file: {}
   default_lease_ttl: 4380h
   max_lease_ttl: 43800h
-  s3_backend:
-    bucket: com-foo-vault
+  self_signed_cert:
+    enabled: false
+  backend: {}
+  dev_mode: true
+  service:
+    type: upstart

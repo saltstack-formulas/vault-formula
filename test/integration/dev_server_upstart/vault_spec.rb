@@ -1,6 +1,10 @@
 describe file('/etc/vault/config/server.hcl') do
   it { should be_a_file }
-  its(:content) { should_not match /syslog/ }
+  its(:content) { should eq("foo") }
+end
+
+describe file('/etc/systemd/system/vault.service') do
+  it { should_not be_a_file }
 end
 
 describe file('/etc/init/vault.conf') do
@@ -14,12 +18,12 @@ if os[:family] == 'amazon'
   # that it is running, that means that it started
   # with the instance
   describe command('sudo initctl list | grep vault | grep -v grep') do
-    its(:stdout) { should match(/vault stop.waiting/) }
+    its(:stdout) { should match(/vault start\/running/) }
     its(:stderr) { should be_empty }
   end
 
   describe processes("vault") do
-    its('users') { should eq [] }
+    its('users') { should eq ['root'] }
   end
 
 else
@@ -31,6 +35,6 @@ end
 
 describe file('/var/log/vault.log') do
   it { should be_a_file }
-  its(:content) { should match(/A storage backend must be specified/) }
+  its(:content) { should match(/WARNING: Dev mode is enabled!/) }
 end
 

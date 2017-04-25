@@ -37,6 +37,10 @@ To use it, just include *vault.server* in your *top.sls*, and configure it using
     max_lease_ttl: 24h
     self_signed_cert:
       enabled: false
+    backend: {}
+    dev_mode: true
+    service:
+      type: systemd
 
 Testing
 =======

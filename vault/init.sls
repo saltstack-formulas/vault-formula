@@ -1,3 +1,4 @@
+{% from "vault/map.jinja" import vault with context %}
 vault packages:
   pkg.installed:
     - names:
@@ -6,7 +7,7 @@ vault packages:
 
 download vault:
   cmd.run:
-    - name: curl --silent -L https://releases.hashicorp.com/vault/{{ pillar['vault']['vault_version'] }}/vault_{{ pillar['vault']['vault_version'] }}_linux_amd64.zip -o /tmp/vault.zip
+    - name: curl --silent -L https://releases.hashicorp.com/vault/{{ vault.version }}/vault_{{ vault.version }}_linux_amd64.zip -o /tmp/vault.zip
     - unless: test -e /tmp/vault.zip
 
 install vault:

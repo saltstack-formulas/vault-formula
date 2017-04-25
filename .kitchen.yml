@@ -15,7 +15,11 @@ provisioner:
   formula: vault
 
 platforms:
-  - name: ubuntu-14.04
+  - name: ubuntu-16.04
+    driver_config:
+      run_command: /sbin/init
+      privileged: true
+      pid_one_command: /usr/lib/systemd/systemd
   - name: amazonlinux
     driver_config:
       image: amazonlinux:latest
@@ -29,10 +33,60 @@ suites:
         base:
           '*':
             - vault
-  - name: server
+  - name: dev_server_systemd
+    excludes:
+      - amazonlinux
     provisioner:
       state_top:
         base:
           '*':
             - vault
             - vault.server
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - vault
+        vault.sls:
+          vault:
+            service:
+              type: systemd
+  - name: dev_server_upstart
+    includes:
+      - amazonlinux
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - vault
+            - vault.server
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - vault
+        vault.sls:
+          vault:
+            service:
+              type: upstart
+  - name: server_backend_s3
+    includes:
+      - amazonlinux
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - vault
+            - vault.server
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - vault
+        vault.sls:
+          vault:
+            backend:
+              type: s3
+              bucket: com-saltstack-vault
+            service:
+              type: upstart
