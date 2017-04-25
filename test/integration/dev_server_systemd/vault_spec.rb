@@ -1,6 +1,16 @@
 describe file('/etc/vault/config/server.hcl') do
   it { should be_a_file }
-  its(:content) { should eq("foo") }
+  expected =<<-EOF
+listener "tcp" {
+  address = "0.0.0.0:8200"
+  tls_disable = 0
+
+}
+
+default_lease_ttl="24h"
+max_lease_ttl="24h"
+EOF
+  its(:content) { should eq(expected) }
 end
 
 describe file('/etc/systemd/system/vault.service') do
