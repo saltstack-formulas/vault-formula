@@ -1,14 +1,2 @@
-{% set vault = salt['grains.filter_by']({
-    'default': {
-      listen_protocol: 'tcp',
-      listen_address: 0.0.0.0,
-      listen_port: 8200,
-      strict_tls: 1,
-      default_lease_ttl: '72h',
-      max_lease_ttl: '72h',
-      vault_version: '0.7.0',
-      self_signed_cert: {
-        enabled: false,
-      }
-    },
-}, merge=salt['pillar.get']('vault:lookup')) %}
+{% import_yaml "vault/defaults.yaml" as defaults %}
+{% set vault = salt['pillar.get']('vault', default=defaults['vault'], merge=True) %}
