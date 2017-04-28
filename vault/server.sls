@@ -21,7 +21,7 @@ generate self signed SSL certs:
     - user: root
     - group: root
     - mode: 755
-    
+
 /etc/vault/config:
   file.directory:
     - user: root
@@ -65,12 +65,8 @@ generate self signed SSL certs:
 vault:
   service.running:
     - enable: True
-{%- if vault.self_signed_cert.enabled or  vault.dev_mode %}
     - require:
       {%- if vault.self_signed_cert.enabled %}
       - cmd: generate self signed SSL certs
       {% endif -%}
-      {%- if vault.dev_mode %}
       - file: /etc/vault/config/server.hcl
-      {% endif -%}
-{% endif -%}

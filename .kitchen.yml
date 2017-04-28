@@ -29,12 +29,6 @@ platforms:
       run_command: /sbin/init
 
 suites:
-  - name: default
-    provisioner:
-      state_top:
-        base:
-          '*':
-            - vault
   - name: dev_server_systemd
     excludes:
       - amazonlinux
@@ -53,7 +47,7 @@ suites:
           vault:
             service:
               type: systemd
-  - name: dev_server_upstart
+  - name: dev_server_upstart_s3
     includes:
       - amazonlinux
     provisioner:
@@ -71,24 +65,6 @@ suites:
           vault:
             service:
               type: upstart
-  - name: server_backend_s3
-    includes:
-      - amazonlinux
-    provisioner:
-      state_top:
-        base:
-          '*':
-            - vault
-            - vault.server
-      pillars:
-        top.sls:
-          base:
-            '*':
-              - vault
-        vault.sls:
-          vault:
             backend:
               type: s3
               bucket: com-saltstack-vault
-            service:
-              type: upstart
