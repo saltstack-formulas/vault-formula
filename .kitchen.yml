@@ -47,6 +47,17 @@ suites:
           vault:
             service:
               type: systemd
+            server:
+              max_lease_ttl: 24h
+              default_lease_ttl: 24h
+              listener:
+                - tcp:
+                    address: "0.0.0.0:8200"
+                    tls_disable: true
+              storage:
+                file: 
+                  path: "/tmp/vault"
+
   - name: dev_server_upstart_s3
     includes:
       - amazonlinux
@@ -65,6 +76,13 @@ suites:
           vault:
             service:
               type: upstart
-            backend:
-              type: s3
-              bucket: com-saltstack-vault
+            server:
+              max_lease_ttl: 24h
+              default_lease_ttl: 24h
+              listener:
+                - tcp:
+                    address: "0.0.0.0:8200"
+                    tls_disable: true
+              storage:
+                s3: 
+                  bucket: "vault-formula-bucket"

@@ -22,23 +22,15 @@ generate self signed SSL certs:
     - group: root
     - mode: 755
 
-/etc/vault/config:
-  file.directory:
-    - user: root
-    - group: root
-    - mode: 755
-    - require:
-      - file: /etc/vault
-
-/etc/vault/config/server.hcl:
-  file.managed:
-    - source: salt://vault/files/server.hcl.jinja
-    - template: jinja
+/etc/vault/server.hcl:
+  file.serialize:
+    - dataset_pillar: 'vault:server'
     - user: root
     - group: root
     - mode: 644
+    - formatter: json
     - require:
-      - file: /etc/vault/config
+      - file: /etc/vault
 
 {%- if vault.service.type == 'systemd' %}
 /etc/systemd/system/vault.service:
@@ -66,7 +58,7 @@ vault:
   service.running:
     - enable: True
     - require:
-      {%- if vault.self_signed_cert.enabled %}
+      {% if vault.self_signed_cert.enabled %}
       - cmd: generate self signed SSL certs
       {% endif -%}
-      - file: /etc/vault/config/server.hcl
+      - file: /etc/vault/server.hcl

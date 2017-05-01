@@ -1,16 +1,23 @@
 vault:
   version: 0.7.0
-  listen_protocol: tcp
-  listen_port: 8200
-  listen_address: 0.0.0.0
-  strict_tls: 0
-  tls_cert_file: {}
-  tls_key_file: {}
-  default_lease_ttl: 4380h
-  max_lease_ttl: 43800h
   self_signed_cert:
-    enabled: false
-  backend: {}
+    enabled: true
+    hostname: vault
   dev_mode: true
   service:
-    type: upstart
+    type: systemd
+
+  server:
+    max_lease_ttl: 24h
+    default_lease_ttl: 24h
+    listener:
+      - tcp:
+          address: "0.0.0.0:8200"
+          tls_disable: false
+          # When self_signed_cert:enabled true and self_signed_cert:hostname vault 
+          # the cert and key are found at the following locations:
+          tls_cert_file: "/etc/vault/vault.pem"
+          tls_key_file: "/etc/vault/vault-nopass.key.pem"
+    storage:
+      file: 
+        path: "/tmp/vault"

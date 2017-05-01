@@ -4,17 +4,26 @@ describe command('/usr/local/bin/vault -version') do
   its(:stdout) { should match(/^Vault v[0-9\.]+ \('[0-9a-f]+'\)/) }
 end
 
-describe file('/etc/vault/config/server.hcl') do
+describe file('/etc/vault/server.hcl') do
   it { should be_a_file }
-  expected =<<-EOF
-listener "tcp" {
-  address = "0.0.0.0:8200"
-  tls_disable = 0
-
+  expected = <<-EOF
+{
+  "default_lease_ttl": "24h",
+  "listener": [
+    {
+      "tcp": {
+        "address": "0.0.0.0:8200",
+        "tls_disable": true
+      }
+    }
+  ],
+  "max_lease_ttl": "24h",
+  "storage": {
+    "file": {
+      "path": "/tmp/vault"
+    }
+  }
 }
-
-default_lease_ttl="24h"
-max_lease_ttl="24h"
 EOF
   its(:content) { should eq(expected) }
 end
@@ -38,4 +47,3 @@ describe command('journalctl -u vault') do
   its(:stderr) { should be_empty }
   its(:stdout) { should match(/WARNING: Dev mode is enabled!/) }
 end
-

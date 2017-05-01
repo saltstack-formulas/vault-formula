@@ -7,4 +7,4 @@ After=network-online.target consul.service
 [Service]
 EnvironmentFile=-/etc/sysconfig/vault
 Restart=on-failure
-ExecStart=/usr/local/bin/vault server {% if vault.dev_mode %}-dev{% else %} -config="/etc/vault/config/server.hcl"{% endif %}
+ExecStart=/usr/local/bin/vault server {% if vault.dev_mode %}-dev{% else -%} -config=/etc/vault/server.hcl{% endif %}

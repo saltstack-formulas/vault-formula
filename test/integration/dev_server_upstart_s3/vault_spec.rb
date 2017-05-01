@@ -4,21 +4,26 @@ describe command('/usr/local/bin/vault -version') do
   its(:stdout) { should match(/^Vault v[0-9\.]+ \('[0-9a-f]+'\)/) }
 end
 
-describe file('/etc/vault/config/server.hcl') do
+describe file('/etc/vault/server.hcl') do
   it { should be_a_file }
   expected = <<-EOF
-
-backend "s3" {
-  bucket = "com-saltstack-vault"
+{
+  "default_lease_ttl": "24h",
+  "listener": [
+    {
+      "tcp": {
+        "address": "0.0.0.0:8200",
+        "tls_disable": true
+      }
+    }
+  ],
+  "max_lease_ttl": "24h",
+  "storage": {
+    "s3": {
+      "bucket": "vault-formula-bucket"
+    }
+  }
 }
-listener "tcp" {
-  address = "0.0.0.0:8200"
-  tls_disable = 0
-
-}
-
-default_lease_ttl="24h"
-max_lease_ttl="24h"
 EOF
   its(:content) { should eq(expected) }
 end
