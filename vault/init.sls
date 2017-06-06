@@ -13,8 +13,14 @@ download vault:
 
 install vault:
   cmd.run:
-    - name:  unzip /tmp/vault.zip -d /usr/local/bin &&  chmod 0755 /usr/local/bin/vault &&  chown root:root /usr/local/bin/vault
+    - name: unzip /tmp/vault.zip -d /usr/local/bin && chmod 0755 /usr/local/bin/vault && chown root:root /usr/local/bin/vault
     - require:
       - cmd: download vault
       - pkg: unzip
     - unless: test -e /usr/local/bin/vault
+
+vault set cap mlock:
+  cmd.run:
+    - name: "setcap cap_ipc_lock=+ep /usr/local/bin/vault"
+    - watch:
+      - cmd: install vault
