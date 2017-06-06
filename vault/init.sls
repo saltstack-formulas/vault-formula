@@ -22,5 +22,5 @@ install vault:
 vault set cap mlock:
   cmd.run:
     - name: "setcap cap_ipc_lock=+ep /usr/local/bin/vault"
-    - watch:
+    - onchanges:
       - cmd: install vault
