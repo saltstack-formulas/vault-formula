@@ -1,7 +1,11 @@
 {%- from "vault/map.jinja" import vault with context -%}
-{%- if vault.backend and vault.backend.type == "s3" %}
-backend "s3" {
-  bucket = "{{ vault.backend.bucket }}"
+{%- if vault.backend %}
+backend "{{ vault.backend.type }}" {
+  {%- if vault.backend.type == "s3" %}
+    bucket = "{{ vault.backend.bucket }}"
+  {%- elif vault.backend.type == "file" %}
+    path = "{{ vault.backend.path }}"
+  {% endif -%}
 }
 {% endif -%}
 
