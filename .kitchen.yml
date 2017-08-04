@@ -10,6 +10,10 @@ verifier:
 
 provisioner:
   name: salt_solo
+  salt_install: bootstrap
+  salt_bootstrap_url: https://bootstrap.saltstack.com
+  salt_bootstrap_options: -p git -p curl stable 2016.11
+  salt_version: latest
   log_level: debug
   require_chef: false
   formula: vault
@@ -24,6 +28,8 @@ platforms:
       pid_one_command: /usr/lib/systemd/systemd
   - name: amazonlinux
     driver_config:
+      provision_command:
+        - yum install -y epel-release
       image: amazonlinux:latest
       platform: rhel
       run_command: /sbin/init
