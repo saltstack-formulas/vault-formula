@@ -28,7 +28,7 @@ To use it, just include *vault.server* in your *top.sls*, and configure it using
 ::
 
   vault:
-    vault_version: 0.7.0
+    version: 0.7.0
     listen_protocol: tcp
     listen_port: 8200
     listen_address: 0.0.0.0
