@@ -15,3 +15,5 @@ vault:
   dev_mode: true
   service:
     type: systemd
+  user: root
+  group: root
