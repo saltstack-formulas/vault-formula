@@ -3,7 +3,7 @@ vault:
   listen_protocol: tcp
   listen_port: 8200
   listen_address: 0.0.0.0
-  strict_tls: 0
+  tls_disable: 0
   tls_cert_file: {}
   tls_key_file: {}
   default_lease_ttl: 4380h
@@ -14,3 +14,5 @@ vault:
   dev_mode: true
   service:
     type: upstart
+  user: root
+  group: root

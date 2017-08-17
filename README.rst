@@ -28,11 +28,11 @@ To use it, just include *vault.server* in your *top.sls*, and configure it using
 ::
 
   vault:
-    vault_version: 0.7.0
+    version: 0.7.0
     listen_protocol: tcp
     listen_port: 8200
     listen_address: 0.0.0.0
-    strict_tls: 0
+    tls_disable: 0
     default_lease_ttl: 24h
     max_lease_ttl: 24h
     self_signed_cert:
