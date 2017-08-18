@@ -1,5 +1,5 @@
 vault:
-  version: 0.7.0
+  version: 0.7.2
   listen_protocol: tcp
   listen_port: 8200
   listen_address: 0.0.0.0
@@ -10,7 +10,14 @@ vault:
   max_lease_ttl: 43800h
   self_signed_cert:
     enabled: false
-  backend: {}
+  backend:
+    # using the file storage
+    type: file
+    path: "/path/to/storage"
+
+    # if you want to use the s3 storage
+    type: s3
+    bucket: "example.s3.amazonaws.com"
   dev_mode: true
   service:
     type: upstart
