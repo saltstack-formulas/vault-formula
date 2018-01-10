@@ -53,7 +53,7 @@ verify shasums sig:
 
 verify vault:
   cmd.run:
-    - name: "shasum -a 256 -c vault_{{ vault.version }}_SHA256SUMS | grep -q \"vault_{{ vault.version }}_linux_amd64.zip: OK\""
+    - name: "shasum -a 256 -c vault_{{ vault.version }}_SHA256SUMS 2>&1 | grep -q \"vault_{{ vault.version }}_linux_amd64.zip: OK\""
     - cwd: /tmp
     - require:
       - cmd: download vault
