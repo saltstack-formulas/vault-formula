@@ -24,7 +24,10 @@ platforms:
       provision_command:
         - apt-get update && apt-get install -y locales && locale-gen en_US.UTF-8
       run_command: /sbin/init
-      privileged: true
+      pid_one_command: /usr/lib/systemd/systemd
+  - name: centos-7
+    driver_config:
+      run_command: /sbin/init
       pid_one_command: /usr/lib/systemd/systemd
   - name: amazonlinux
     driver_config:

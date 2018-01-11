@@ -70,3 +70,6 @@ vault:
       - cmd: generate self signed SSL certs
       {% endif -%}
       - file: /etc/vault/config/server.hcl
+    - onchanges:
+      - cmd: install vault
+      - file: /etc/vault/config/server.hcl
