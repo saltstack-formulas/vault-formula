@@ -68,7 +68,7 @@ vault:
     - require:
       {%- if vault.self_signed_cert.enabled %}
       - cmd: generate self signed SSL certs
-      {% endif -%}
+      {% endif %}
       - file: /etc/vault/config/server.hcl
     - onchanges:
       - cmd: install vault
