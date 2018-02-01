@@ -38,4 +38,3 @@ describe command('journalctl -u vault') do
   its(:stderr) { should be_empty }
   its(:stdout) { should match(/WARNING: Dev mode is enabled!/) }
 end
-

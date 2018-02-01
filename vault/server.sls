@@ -30,9 +30,9 @@ generate self signed SSL certs:
     - require:
       - file: /etc/vault
 
-/etc/vault/config/server.hcl:
+/etc/vault/config/server.json:
   file.managed:
-    - source: salt://vault/files/server.hcl.jinja
+    - source: salt://vault/files/server.json.jinja
     - template: jinja
     - user: root
     - group: root
@@ -69,8 +69,8 @@ vault:
       {%- if vault.self_signed_cert.enabled %}
       - cmd: generate self signed SSL certs
       {% endif %}
-      - file: /etc/vault/config/server.hcl
+      - file: /etc/vault/config/server.json
       - cmd: install vault
     - onchanges:
       - cmd: install vault
-      - file: /etc/vault/config/server.hcl
+      - file: /etc/vault/config/server.json

@@ -1,23 +1,14 @@
 vault:
   version: 0.9.1
-  listen_protocol: tcp
-  listen_port: 8200
-  listen_address: 0.0.0.0
-  tls_disable: 0
+  dev_mode: true
   service: upstart
-  tls_cert_file: {}
-  tls_key_file: {}
-  default_lease_ttl: 24h
-  max_lease_ttl: 24h
   self_signed_cert:
     enabled: false
-  backend: {}
-  dev_mode: true
   secure_download: true
   service:
     type: systemd
-  user: root
-  group: root
+  user: vault
+  group: vault
   hashicorp_gpg_key: |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
     Version: GnuPG v1
@@ -50,3 +41,10 @@ vault:
     =LYpS
     -----END PGP PUBLIC KEY BLOCK-----
   hashicorp_key_id: 51852D87348FFC4C
+  server_config:
+    listener:
+      tcp:
+        address: "0.0.0.0:8200"
+        tls_disable: False
+    default_lease_ttl: 768h
+    max_lease_ttl: 768h

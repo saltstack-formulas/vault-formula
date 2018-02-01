@@ -15,6 +15,18 @@ vault packages:
       {% endif %}
       {% endif %}
 
+create vault group:
+  group.present:
+    - name: {{ vault.group }}
+
+create vault user:
+  user.present:
+    - name: {{ vault.user }}
+    - groups:
+      - {{ vault.group }}
+    - shell: /usr/sbin/nologin
+    - createhome: False
+
 download vault:
   cmd.run:
     - name: curl --silent -L https://releases.hashicorp.com/vault/{{ vault.version }}/vault_{{ vault.version }}_linux_amd64.zip -o /tmp/vault_{{ vault.version }}_linux_amd64.zip
