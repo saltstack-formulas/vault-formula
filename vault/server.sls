@@ -19,7 +19,7 @@ generate self signed SSL certs:
   cmd.run:
     - name: bash /tmp/self-cert-gen.sh {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
     - cwd: /etc/vault/certs
-    - unless: [[ -f /etc/vault/certs/{{ salt["grains.get"]("id") }}.pem ]]
+    - unless: [[ -f /etc/vault/certs/certificates_generated_at ]]
     - user: {{ vault.user }}
     - require:
       - file: /tmp/self-cert-gen.sh

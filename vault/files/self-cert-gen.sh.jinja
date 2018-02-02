@@ -133,4 +133,6 @@ fi
 echo "Generating version of '$root_key' without password as '$root_key_nopass'."
 openssl rsa -in "$root_key" -out "$root_key_nopass" -passin pass:"$pw"
 
+date -Is > certificates_generated_at
+
 chmod -v 600 *
