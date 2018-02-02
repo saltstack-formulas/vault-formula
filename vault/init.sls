@@ -14,6 +14,9 @@ vault packages:
       - libdigest-sha-perl
       {% endif %}
       {% endif %}
+      {%- if vault.self_signed_cert.enabled %}
+      - openssl
+      {% endif %}
 
 create vault group:
   group.present:

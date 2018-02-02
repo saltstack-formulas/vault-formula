@@ -4,15 +4,27 @@
   file.managed:
     - source: salt://vault/files/self-cert-gen.sh.jinja
     - template: jinja
-    - user: root
-    - group: root
-    - mode: 644
+    - user: {{ vault.user }}
+    - group: {{ vault.group }}
+    - mode: 600
+
+/etc/vault/certs:
+  file.directory:
+    - user: {{ vault.user }}
+    - group: {{ vault.group }}
+    - mode: 700
+    - makedirs: True
 
 generate self signed SSL certs:
   cmd.run:
     - name: bash /tmp/self-cert-gen.sh {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
+    - cwd: /etc/vault/certs
+    - unless: [[ -f /etc/vault/certs/{{ salt["grains.get"]("id") }}.pem ]]
+    - user: {{ vault.user }}
     - require:
       - file: /tmp/self-cert-gen.sh
+      - file: /etc/vault/certs
+      - sls: vault
 {% endif -%}
 
 /etc/vault:
