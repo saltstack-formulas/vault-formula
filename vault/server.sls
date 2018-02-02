@@ -1,19 +1,30 @@
 {% from "vault/map.jinja" import vault with context %}
 {%- if vault.self_signed_cert.enabled %}
-/usr/local/bin/self-cert-gen.sh:
+/tmp/self-cert-gen.sh:
   file.managed:
-    - source: salt://vault/files/cert-gen.sh.jinja
+    - source: salt://vault/files/self-cert-gen.sh.jinja
     - template: jinja
-    - user: root
-    - group: root
-    - mode: 644
+    - user: {{ vault.user }}
+    - group: {{ vault.group }}
+    - mode: 600
+
+/etc/vault/certs:
+  file.directory:
+    - user: {{ vault.user }}
+    - group: {{ vault.group }}
+    - mode: 700
+    - makedirs: True
 
 generate self signed SSL certs:
   cmd.run:
-    - name: bash /usr/local/bin/cert-gen.sh {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
-    - cwd: /etc/vault
+    - name: bash /tmp/self-cert-gen.sh {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
+    - cwd: /etc/vault/certs
+    - unless: [[ -f /etc/vault/certs/certificates_generated_at ]]
+    - user: {{ vault.user }}
     - require:
-      - file: /usr/local/bin/self-cert-gen.sh
+      - file: /tmp/self-cert-gen.sh
+      - file: /etc/vault/certs
+      - sls: vault
 {% endif -%}
 
 /etc/vault:
