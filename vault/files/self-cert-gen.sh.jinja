@@ -1,4 +1,6 @@
+{%- from "vault/map.jinja" import vault with context -%}
 #!/usr/bin/env bash
+set -xev
 
 ###
  # Check for root name.
@@ -130,3 +132,5 @@ fi
 
 echo "Generating version of '$root_key' without password as '$root_key_nopass'."
 openssl rsa -in "$root_key" -out "$root_key_nopass" -passin pass:"$pw"
+
+chmod -v 600 *
