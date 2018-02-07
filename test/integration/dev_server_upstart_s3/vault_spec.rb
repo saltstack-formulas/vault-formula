@@ -4,7 +4,7 @@ describe command('/usr/local/bin/vault -version') do
   its(:stdout) { should match(/^Vault v[0-9\.]+ \('[0-9a-f]+'\)/) }
 end
 
-describe file('/etc/vault/config/server.hcl') do
+describe file('/etc/vault/config/server.json') do
   it { should be_a_file }
 end
 
