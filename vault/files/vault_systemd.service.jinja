@@ -10,3 +10,8 @@ Restart=on-failure
 ExecStart=/usr/local/bin/vault server {% if vault.dev_mode %}-dev{% else %} -config="/etc/vault/config/server.json"{% endif %}
 User={{ vault.user }}
 Group={{ vault.group }}
+{% if grains['os'] in ['CentOS', 'RedHat'] -%}
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=​vault
+{% endif -%}
