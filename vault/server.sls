@@ -73,6 +73,11 @@ generate self signed SSL certs:
       - service: vault
 {% endif -%}
 
+service.systemctl_reload:
+  module.run:
+    - onchanges:
+      - file: /etc/systemd/system/vault.service
+
 vault:
   service.running:
     - enable: True
@@ -84,4 +89,4 @@ vault:
       - cmd: install vault
     - onchanges:
       - cmd: install vault
-      - file: /etc/vault/config/server.json
+      - module: service.systemctl_reload
