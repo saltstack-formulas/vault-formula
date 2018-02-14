@@ -1,4 +1,5 @@
 ---
+<% if begin; File.read('/sys/fs/selinux/enforce') == '1'; rescue Errno::ENOENT => e; false; end %><% @SELinux=true %><% end %>
 driver:
   name: docker
   use_sudo: false
@@ -26,6 +27,12 @@ platforms:
       run_command: /sbin/init
       pid_one_command: /usr/lib/systemd/systemd
   - name: centos-7
+    <% if @SELinux %>
+    driver:
+      name: vagrant
+      provider: libvirt
+      box: centos/7
+    <% end %>
     driver_config:
       run_command: /sbin/init
       pid_one_command: /usr/lib/systemd/systemd

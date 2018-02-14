@@ -14,6 +14,29 @@ vault packages:
       - libdigest-sha-perl
       {% endif %}
       {% endif %}
+      {%- if vault.self_signed_cert.enabled %}
+      - openssl
+      {% endif %}
+
+create vault group:
+  group.present:
+    - name: {{ vault.group }}
+
+create vault user:
+  user.present:
+    - name: {{ vault.user }}
+    - groups:
+      - {{ vault.group }}
+    - shell: /usr/sbin/nologin
+    - createhome: False
+
+{% if vault.dev_mode -%}
+/home/{{ vault.user }}:
+  file.directory:
+    - user: {{ vault.user }}
+    - group: {{ vault.group }}
+    - mode: 755
+{% endif -%}
 
 download vault:
   cmd.run:

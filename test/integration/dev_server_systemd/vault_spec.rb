@@ -4,19 +4,8 @@ describe command('/usr/local/bin/vault -version') do
   its(:stdout) { should match(/^Vault v[0-9\.]+ \('[0-9a-f]+'\)/) }
 end
 
-describe file('/etc/vault/config/server.hcl') do
+describe file('/etc/vault/config/server.json') do
   it { should be_a_file }
-  expected =<<-EOF
-listener "tcp" {
-  address = "0.0.0.0:8200"
-  tls_disable = 0
-
-}
-
-default_lease_ttl="24h"
-max_lease_ttl="24h"
-EOF
-  its(:content) { should eq(expected) }
 end
 
 describe file('/etc/systemd/system/vault.service') do
@@ -36,6 +25,11 @@ end
 describe command('journalctl -u vault') do
   its(:exit_status) { should eq 0 }
   its(:stderr) { should be_empty }
+  # Be aware the test below will likely fail if your host OS
+  # has SELinux set to Enforcing as that will traverse into the conainer and deny
+  # the vault user which doesn't have the privilege to write as systemd to the
+  # journal.
+  # On distributions like Fedora, this should be tested with vagrant-virtualbox
+  # or vagrant-libvirt
   its(:stdout) { should match(/WARNING: Dev mode is enabled!/) }
 end
-
