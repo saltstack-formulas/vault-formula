@@ -30,6 +30,14 @@ create vault user:
     - shell: /usr/sbin/nologin
     - createhome: False
 
+{% if vault.dev_mode -%}
+/home/{{ vault.user }}:
+  file.directory:
+    - user: {{ vault.user }}
+    - group: {{ vault.group }}
+    - mode: 755
+{% endif -%}
+
 download vault:
   cmd.run:
     - name: curl --silent -L https://releases.hashicorp.com/vault/{{ vault.version }}/vault_{{ vault.version }}_linux_amd64.zip -o /tmp/vault_{{ vault.version }}_linux_amd64.zip
