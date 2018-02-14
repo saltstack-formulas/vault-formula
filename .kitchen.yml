@@ -1,5 +1,5 @@
 ---
-<% if File.read('/sys/fs/selinux/enforce') == '1' || false %><% @SELinux=true %><% end %>
+<% if begin; File.read('/sys/fs/selinux/enforce') == '1'; rescue Errno::ENOENT => e; false; end %><% @SELinux=true %><% end %>
 driver:
   name: docker
   use_sudo: false
