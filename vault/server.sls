@@ -3,25 +3,6 @@
 include:
   - vault
 
-{% if vault.self_signed_cert.enabled -%}
-/usr/local/bin/self-cert-gen.sh:
-  file.managed:
-    - source: salt://vault/files/cert-gen.sh.jinja
-    - template: jinja
-    - user: root
-    - group: root
-    - mode: 644
-
-generate self signed SSL certs:
-  cmd.run:
-    - name: bash /usr/local/bin/cert-gen.sh {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
-    - cwd: /etc/vault
-    - require:
-      - file: /usr/local/bin/self-cert-gen.sh
-    - require_in:
-      - service: vault
-{% endif -%}
-
 {% if not vault.dev_mode %}
 /etc/vault/config:
   file.directory:
@@ -41,6 +22,20 @@ generate self signed SSL certs:
       - file: /etc/vault/config
     - watch_in:
       - service: vault
+
+  {%- if vault.self_signed_cert.enabled %}
+generate self signed SSL certs:
+  cmd.script:
+    - source: salt://vault/files/cert-gen.sh.jinja
+    - template: jinja
+    - args: {{ vault.self_signed_cert.hostname }} {{ vault.self_signed_cert.password }}
+    - cwd: /etc/vault
+    - creates: /etc/vault/{{ vault.self_signed_cert.hostname }}.pem
+    - require:
+      - /etc/vault/config
+    - require_in:
+      - service: vault
+  {%- endif %}
 {% endif %}
 
 {%- if grains.init == 'systemd' %}
