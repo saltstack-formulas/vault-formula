@@ -6,7 +6,6 @@ driver:
 
 verifier:
   name: inspec
-  format: doc
 
 provisioner:
   name: salt_solo
@@ -33,7 +32,7 @@ platforms:
     driver_config:
       provision_command:
         - yum install -y epel-release
-      image: amazonlinux:latest
+      image: amazonlinux:1
       platform: rhel
       run_command: /sbin/init
 
