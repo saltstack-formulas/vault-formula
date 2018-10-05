@@ -42,6 +42,13 @@ To use it, just include *vault.server* in your *top.sls*, and configure it using
     service:
       type: systemd
 
+Issues
+======
+
+Vault `v0.10.0 <https://github.com/hashicorp/vault/blob/master/CHANGELOG.md#0100-april-10th-2018>`_ introduces a revamped versioned kv backend (version 2), with a breaking change in the paths used to read/write data. This backend is enabled by default when dev mode is enabled.
+
+The Salt execution modules are not compatible with this new backend, therefore if you intend to access Vault in dev mode using the Salt modules, it's suggested to use an outdated, but compatible version of Vault by setting a pillar value e.g. ``version: 0.9.6``.
+
 Testing
 =======
 
