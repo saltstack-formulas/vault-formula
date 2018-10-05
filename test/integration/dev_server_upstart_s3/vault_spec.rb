@@ -55,6 +55,6 @@ end
 
 describe file('/var/log/vault.log') do
   it { should be_a_file }
-  its(:content) { should match(/WARNING: Dev mode is enabled!/) }
+  its(:content) { should match(/WARNING! dev mode is enabled!/) }
 end
 

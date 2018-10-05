@@ -36,6 +36,6 @@ end
 describe command('journalctl -u vault') do
   its(:exit_status) { should eq 0 }
   its(:stderr) { should be_empty }
-  its(:stdout) { should match(/WARNING: Dev mode is enabled!/) }
+  its(:stdout) { should match(/WARNING! dev mode is enabled!/) }
 end
 
