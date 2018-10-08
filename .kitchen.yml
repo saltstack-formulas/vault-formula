@@ -43,15 +43,6 @@ suites:
           '*':
             - vault
             - vault.server
-      pillars:
-        top.sls:
-          base:
-            '*':
-              - vault
-        vault.sls:
-          vault:
-            service:
-              type: systemd
   - name: dev_server_upstart_s3
     includes:
       - amazonlinux
@@ -68,8 +59,6 @@ suites:
               - vault
         vault.sls:
           vault:
-            service:
-              type: upstart
             backend:
               type: s3
               bucket: com-saltstack-vault
