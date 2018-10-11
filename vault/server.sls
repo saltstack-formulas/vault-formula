@@ -1,5 +1,9 @@
-{% from "vault/map.jinja" import vault with context %}
-{%- if vault.self_signed_cert.enabled %}
+{% from "vault/map.jinja" import vault with context -%}
+
+include:
+  - vault
+
+{% if vault.self_signed_cert.enabled -%}
 /usr/local/bin/self-cert-gen.sh:
   file.managed:
     - source: salt://vault/files/cert-gen.sh.jinja
@@ -14,21 +18,17 @@ generate self signed SSL certs:
     - cwd: /etc/vault
     - require:
       - file: /usr/local/bin/self-cert-gen.sh
+    - require_in:
+      - service: vault
 {% endif -%}
 
-/etc/vault:
-  file.directory:
-    - user: root
-    - group: root
-    - mode: 755
-
+{% if not vault.dev_mode %}
 /etc/vault/config:
   file.directory:
+    - makedirs: true
     - user: root
     - group: root
     - mode: 755
-    - require:
-      - file: /etc/vault
 
 /etc/vault/config/server.hcl:
   file.managed:
@@ -39,6 +39,9 @@ generate self signed SSL certs:
     - mode: 644
     - require:
       - file: /etc/vault/config
+    - watch_in:
+      - service: vault
+{% endif %}
 
 {%- if grains.init == 'systemd' %}
 /etc/systemd/system/vault.service:
@@ -48,8 +51,14 @@ generate self signed SSL certs:
     - user: root
     - group: root
     - mode: 644
-    - require_in:
+    - order: 1
+    - watch_in:
       - service: vault
+  cmd.run:
+    - name: systemctl daemon-reload
+    - order: 1
+    - onchanges:
+      - file: /etc/systemd/system/vault.service
 
 {% elif grains.init == 'upstart' %}
 /etc/init/vault.conf:
@@ -58,19 +67,19 @@ generate self signed SSL certs:
     - template: jinja
     - user: root
     - group: root
-    - require_in:
+    - mode: 644
+    - order: 1
+    - watch_in:
       - service: vault
+  cmd.run:
+    - name: initctl reload-configuration
+    - order: 1
+    - onchanges:
+      - file: /etc/init/vault.conf
 {% endif -%}
 
 vault:
   service.running:
-    - enable: True
-    - require:
-      {%- if vault.self_signed_cert.enabled %}
-      - cmd: generate self signed SSL certs
-      {% endif %}
-      - file: /etc/vault/config/server.hcl
+    - enable: true
+    - watch:
       - cmd: install vault
-    - onchanges:
-      - cmd: install vault
-      - file: /etc/vault/config/server.hcl
