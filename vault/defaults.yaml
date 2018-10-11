@@ -10,7 +10,9 @@ vault:
   max_lease_ttl: 24h
   self_signed_cert:
     enabled: false
-  backend: {}
+  backend:
+    type: file
+    path: /var/lib/vault/data
   dev_mode: true
   secure_download: true
   user: root
