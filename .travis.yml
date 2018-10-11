@@ -8,4 +8,4 @@ services:
 before_install:
   - bundle install
 
-script: bundle exec kitchen verify
+script: bundle exec kitchen test
