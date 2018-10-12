@@ -24,6 +24,9 @@ include:
       - service: vault
 
   {%- if vault.self_signed_cert.enabled %}
+openssl:
+  pkg.installed
+
 generate self signed SSL certs:
   cmd.script:
     - source: salt://vault/files/cert-gen.sh.jinja
@@ -32,6 +35,7 @@ generate self signed SSL certs:
     - cwd: /etc/vault
     - creates: /etc/vault/{{ vault.self_signed_cert.hostname }}.pem
     - require:
+      - openssl
       - /etc/vault/config
     - require_in:
       - service: vault
