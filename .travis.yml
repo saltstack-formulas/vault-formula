@@ -1,5 +1,5 @@
 sudo: required
-
+cache: bundler
 language: ruby
 
 services:
@@ -8,4 +8,9 @@ services:
 before_install:
   - bundle install
 
-script: bundle exec kitchen test
+env:
+  matrix:
+    - INSTANCE: dev
+    - INSTANCE: prod
+
+script: bundle exec kitchen test ${INSTANCE}
