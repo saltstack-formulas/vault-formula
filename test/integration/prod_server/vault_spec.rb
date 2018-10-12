@@ -50,3 +50,11 @@ describe json(content: http('http://127.0.0.1:8200/v1/sys/seal-status').body) do
     its('initialized') { should eq false }
     its('sealed') { should eq true }
 end
+
+describe file('/etc/vault/localhost.pem') do
+  it { should be_a_file }
+end
+
+describe file('/etc/vault/localhost-nopass.key') do
+  it { should be_a_file }
+end
