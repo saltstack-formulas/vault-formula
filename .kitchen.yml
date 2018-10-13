@@ -4,6 +4,8 @@ driver:
   use_sudo: false
   privileged: true
   run_command: /sbin/init
+  provision_command:
+    - curl -L https://bootstrap.saltstack.com | sh -s -- -X
 
 verifier:
   name: inspec
@@ -16,17 +18,20 @@ provisioner:
 
 platforms:
   - name: ubuntu-16.04
-    driver_config:
+    driver:
+      name: docker
       provision_command:
-        - apt-get update && apt-get install -y locales && locale-gen en_US.UTF-8
+        - apt-get install -y locales && locale-gen en_US.UTF-8
+        - curl -L https://bootstrap.saltstack.com | sh -s -- -X
   - name: centos-7
-    driver_config:
+    driver:
+      name: docker
       provision_command:
         - yum -y install net-tools    # needed by inspec
+        - curl -L https://bootstrap.saltstack.com | sh -s -- -X
   - name: amazonlinux
-    driver_config:
-      provision_command:
-        - yum install -y epel-release
+    driver:
+      name: docker
       image: amazonlinux:1
       platform: rhel
 
