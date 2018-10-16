@@ -81,4 +81,4 @@ vault:
   service.running:
     - enable: true
     - watch:
-      - cmd: install vault
+      - /usr/local/bin/vault
