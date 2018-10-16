@@ -22,7 +22,7 @@ platforms:
     driver:
       name: docker
       provision_command:
-        - apt-get install -y locales && locale-gen en_US.UTF-8
+        - apt-get install -y locales net-tools && locale-gen en_US.UTF-8
         - curl -L https://bootstrap.saltstack.com | sh -s -- -X
   - name: centos-7
     driver:
@@ -37,6 +37,22 @@ platforms:
       platform: rhel
 
 suites:
+  - name: install_binary
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - vault
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - vault
+        vault.sls:
+          vault:
+#            version: 0.11.1    # test upgrades by doing a double-converge, changing the version pillar between each one
+            version: 0.11.2
+
   - name: dev_server
     provisioner:
       state_top:
