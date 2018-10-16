@@ -5,7 +5,7 @@ driver:
   privileged: true
   run_command: /sbin/init
   provision_command:
-    - curl -L https://bootstrap.saltstack.com | sh -s -- -X
+    - curl -L https://bootstrap.saltstack.com | sh -s -- -X     # install Salt and dependencies here to make use of Docker build cache, speeding up tests massively
 
 verifier:
   name: inspec
@@ -13,6 +13,7 @@ verifier:
 provisioner:
   name: salt_solo
   salt_version: latest
+  log_level: info
   require_chef: false
   formula: vault
 
