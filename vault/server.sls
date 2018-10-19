@@ -23,7 +23,13 @@ include:
     - watch_in:
       - service: vault
 
-  {%- if vault.self_signed_cert.enabled %}
+vault_set_cap_mlock:
+  cmd.run:
+    - name: setcap cap_ipc_lock=+ep $(readlink -f /usr/local/bin/vault)
+    - onchanges:
+      - /usr/local/bin/vault
+
+{%   if vault.self_signed_cert.enabled -%}
 openssl:
   pkg.installed
 
@@ -39,8 +45,8 @@ generate self signed SSL certs:
       - /etc/vault/config
     - require_in:
       - service: vault
-  {%- endif %}
-{% endif %}
+{%   endif %}
+{%- endif %}
 
 {%- if grains.init == 'systemd' %}
 /etc/systemd/system/vault.service:

@@ -15,6 +15,7 @@ vault:
     path: /var/lib/vault/data
   dev_mode: true
   secure_download: true
+  gpg_pkg: gnupg
   user: root
   group: root
   hashicorp_gpg_key: |

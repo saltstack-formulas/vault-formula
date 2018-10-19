@@ -52,6 +52,7 @@ suites:
           vault:
 #            version: 0.11.1    # test upgrades by doing a double-converge, changing the version pillar between each one
             version: 0.11.2
+            secure_download: false
 
   - name: dev_server
     provisioner:
