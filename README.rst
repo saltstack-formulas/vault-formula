@@ -39,8 +39,6 @@ To use it, just include *vault.server* in your *top.sls*, and configure it using
       enabled: false
     backend: {}
     dev_mode: true
-    service:
-      type: systemd
 
 Issues
 ======

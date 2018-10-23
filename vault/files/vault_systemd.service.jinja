@@ -1,12 +1,15 @@
 {%- from "vault/map.jinja" import vault with context -%}
 [Unit]
-Description=vault server
+Description=Hashicorp Vault server
 Requires=network-online.target
 After=network-online.target consul.service
 
 [Service]
 EnvironmentFile=-/etc/sysconfig/vault
-Restart=on-failure
-ExecStart=/usr/local/bin/vault server {% if vault.dev_mode %}-dev{% else %} -config="/etc/vault/config/server.hcl"{% endif %}
+Restart=on-abnormal
+ExecStart=/usr/local/bin/vault server {% if vault.dev_mode %}-dev{% else %} -config=/etc/vault/config/server.hcl{% endif %}
 User={{ vault.user }}
 Group={{ vault.group }}
+
+[Install]
+WantedBy=multi-user.target

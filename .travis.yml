@@ -1,11 +1,17 @@
 sudo: required
-
 language: ruby
+cache: bundler
 
 services:
   - docker
 
-before_install:
-  - bundle install
 
-script: bundle exec kitchen verify
+before_install:
+  - gem install bundler --no-document
+
+env:
+  - PLATFORM=ubuntu
+  - PLATFORM=centos
+  - PLATFORM=amazon
+
+script: bundle exec kitchen test ${PLATFORM}
