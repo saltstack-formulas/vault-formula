@@ -16,4 +16,3 @@ vault-service-init-service-running:
     - watch:
       - vault-package-install-archive-extracted
       - vault-service-init-file-managed
-      - vault-config-init-file-serialize

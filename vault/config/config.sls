@@ -3,7 +3,7 @@
 
 {% from "vault/map.jinja" import vault with context -%}
 
-vault-config-init-file-serialize:
+vault-config-config-file-serialize:
   file.serialize:
     - name: /etc/vault/conf.d/config.json
     - encoding: utf-8
@@ -13,3 +13,5 @@ vault-config-init-file-serialize:
     - group: vault
     - mode: 640
     - makedirs: True
+    - watch_in:
+      - vault-service-init-service-running
