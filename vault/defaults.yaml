@@ -14,8 +14,8 @@ vault:
         path: /var/lib/vault/data
     listener:
       tcp:
-        address: "127.0.0.1:8200"
-        tls_disable: True
+        address: "0.0.0.0:8200"
+        tls_disable: "true"
         tls_cert_file: ""
         tls_key_file: ""
     default_lease_ttl: 768h

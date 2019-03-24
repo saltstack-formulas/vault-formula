@@ -3,10 +3,10 @@
 
 {% from "vault/map.jinja" import vault with context %}
 
+{%- if not vault.dev_mode %}
 include:
-  {%- if not vault.dev_mode %}
   - .config
-  {%- endif %}
   {%- if vault.self_signed_cert.enabled %}
   - .self-sign
   {%- endif %}
+{%- endif %}
