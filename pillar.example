@@ -1,20 +1,25 @@
+# -*- coding: utf-8 -*-
+# vim: ft=sls syntax=yaml softtabstop=2 tabstop=2 shiftwidth=2 expandtab autoindent
+
 vault:
-  version: 0.7.0
-  listen_protocol: tcp
-  listen_port: 8200
-  listen_address: 0.0.0.0
-  tls_disable: 0
-  tls_cert_file: {}
-  tls_key_file: {}
-  default_lease_ttl: 4380h
-  max_lease_ttl: 43800h
-  self_signed_cert:
-    enabled: false
-  backend: {}
-  dev_mode: true
-  secure_download: true
-  user: root
-  group: root
+  version: 1.1.0
+  platform: linux_amd64
+  dev_mode: False
+  verify_download: True
+  config:
+    storage:
+      consul:
+        address: "127.0.0.1:8500"
+        path: "vault"
+    listener:
+      tcp:
+        address: "127.0.0.1:8200"
+        tls_disable: True
+        tls_cert_file: ""
+        tls_key_file: ""
+    default_lease_ttl: 768h
+    max_lease_ttl: 768h
+  hashicorp_key_id: 51852D87348FFC4C
   hashicorp_gpg_key: |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
     Version: GnuPG v1
@@ -46,4 +51,4 @@ vault:
     oEIgXTMyCILo34Fa/C6VCm2WBgz9zZO8/rHIiQm1J5zqz0DrDwKBUM9C
     =LYpS
     -----END PGP PUBLIC KEY BLOCK-----
-  hashicorp_key_id: 51852D87348FFC4C
+
