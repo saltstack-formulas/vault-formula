@@ -42,7 +42,7 @@ suites:
       state_top:
         base:
           '*':
-            - vault
+            - vault.package
       pillars:
         top.sls:
           base:
@@ -52,7 +52,7 @@ suites:
           vault:
 #            version: 0.11.1    # test upgrades by doing a double-converge, changing the version pillar between each one
             version: 0.11.2
-            secure_download: false
+            verify_download: False
 
   - name: dev_server
     provisioner:
@@ -83,7 +83,7 @@ suites:
           vault:
             tls_disable: 1
             self_signed_cert:
-              enabled: true
+              enabled: True
               hostname: localhost
               password: localhost
               country: GB

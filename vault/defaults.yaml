@@ -6,6 +6,8 @@ vault:
   platform: linux_amd64
   dev_mode: False
   verify_download: True
+  self_signed_cert:
+    enabled: False
   config:
     storage:
       file:

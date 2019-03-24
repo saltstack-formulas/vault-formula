@@ -15,6 +15,6 @@ describe service('vault') do
   it { should_not be_running }
 end
 
-describe file("/etc/vault/config/server.hcl") do
+describe file("/etc/vault/conf.d/config.json") do
   it { should_not be_a_file }
 end

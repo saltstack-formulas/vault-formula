@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls syntax=yaml softtabstop=2 tabstop=2 shiftwidth=2 expandtab autoindent
 
-{% import_yaml "vault/yaml/defaults.yaml" as defaults %}
-{% import_yaml "vault/yaml/osfamilymap.yaml" as osfamilymap %}
-{% import_yaml "vault/yaml/initfamilymap.yaml" as initfamilymap %}
+{% import_yaml "vault/defaults.yaml" as defaults %}
+{% import_yaml "vault/osfamilymap.yaml" as osfamilymap %}
+{% import_yaml "vault/initfamilymap.yaml" as initfamilymap %}
 
 {% set vault = salt['grains.filter_by'](
   defaults, merge=salt['grains.filter_by'](

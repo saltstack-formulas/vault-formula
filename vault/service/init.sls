@@ -8,8 +8,6 @@ vault-service-init-file-managed:
     - name: {{ vault.service.path }}
     - source: {{ vault.service.source }}
     - template: jinja
-    - watch_in:
-      - service: vault
 
 vault-service-init-service-running:
   service.running:
