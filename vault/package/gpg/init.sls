@@ -3,23 +3,39 @@
 
 {% from "vault/map.jinja" import vault with context %}
 
-vault-package-signature-file-managed-checksum:
+vault-package-gpg-file-managed:
+  file.managed:
+    - name: /opt/vault/hashicorp.asc
+    - contents: |
+        {{ vault.hashicorp_gpg_key | indent(8) }}
+    - makedirs: True
+
+vault-package-gpg-pkg-installed:
+  pkg.installed:
+    - name: {{ vault.gpg_pkg }}
+
+vault-package-gpg-cmd-run-import:
+  cmd.run:
+    - name: gpg --import /opt/vault/hashicorp.asc
+    - unless: gpg --list-keys {{ vault.hashicorp_key_id }}
+
+vault-package-gpg-file-managed-checksum:
   file.managed:
     - name: /opt/vault/{{ vault.version }}_SHA256SUMS
     - source: https://releases.hashicorp.com/vault/{{ vault.version }}/vault_{{ vault.version }}_SHA256SUMS
     - skip_verify: True
     - makedirs: True
 
-vault-package-signature-file-managed-signature:
+vault-package-gpg-file-managed-signature:
   file.managed:
     - name: /opt/vault/{{ vault.version }}_SHA256SUMS.sig
     - source: https://releases.hashicorp.com/vault/{{ vault.version }}/vault_{{ vault.version }}_SHA256SUMS.sig
     - skip_verify: True
     - makedirs: True
 
-vault-package-signature-cmd-run:
+vault-package-gpg-cmd-run-verify:
   cmd.run:
     - name: gpg --verify /opt/vault/{{ vault.version }}_SHA256SUMS.sig /opt/vault/{{ vault.version }}_SHA256SUMS
     - onchanges:
-      - vault-package-signature-file-managed-checksum
-      - vault-package-signature-file-managed-signature
+      - file: vault-package-gpg-file-managed-checksum
+      - file: vault-package-gpg-file-managed-signature

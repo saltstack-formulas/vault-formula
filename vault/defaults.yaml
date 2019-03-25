@@ -9,9 +9,6 @@ vault:
   self_signed_cert:
     enabled: False
   config:
-    storage:
-      file:
-        path: /var/lib/vault/data
     listener:
       tcp:
         address: "0.0.0.0:8200"

@@ -38,4 +38,4 @@ vault-package-install-cmd-run:
   cmd.run:
     - name: setcap cap_ipc_lock=+ep /opt/vault/bin/vault
     - onchanges:
-      - vault-package-install-archive-extracted
+      - archive: vault-package-install-archive-extracted

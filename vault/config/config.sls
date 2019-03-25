@@ -14,4 +14,4 @@ vault-config-config-file-serialize:
     - mode: 640
     - makedirs: True
     - watch_in:
-      - vault-service-init-service-running
+      - service: vault-service-init-service-running

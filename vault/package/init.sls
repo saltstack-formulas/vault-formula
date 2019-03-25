@@ -7,5 +7,4 @@ include:
   - .install
   {%- if vault.verify_download %}
   - .gpg
-  - .signature
   {%- endif %}
