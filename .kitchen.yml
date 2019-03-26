@@ -81,6 +81,10 @@ suites:
               - vault
         vault.sls:
           vault:
+            config:
+              storage:
+                file:
+                  path: /var/lib/vault/data
             tls_disable: 1
             self_signed_cert:
               enabled: True
