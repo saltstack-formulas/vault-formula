@@ -19,13 +19,6 @@ vault-package-gpg-cmd-run-import:
     - name: gpg --import /opt/vault/hashicorp.asc
     - unless: gpg --list-keys {{ vault.hashicorp_key_id }}
 
-vault-package-gpg-file-managed-checksum:
-  file.managed:
-    - name: /opt/vault/{{ vault.version }}_SHA256SUMS
-    - source: https://releases.hashicorp.com/vault/{{ vault.version }}/vault_{{ vault.version }}_SHA256SUMS
-    - skip_verify: True
-    - makedirs: True
-
 vault-package-gpg-file-managed-signature:
   file.managed:
     - name: /opt/vault/{{ vault.version }}_SHA256SUMS.sig
@@ -37,5 +30,5 @@ vault-package-gpg-cmd-run-verify:
   cmd.run:
     - name: gpg --verify /opt/vault/{{ vault.version }}_SHA256SUMS.sig /opt/vault/{{ vault.version }}_SHA256SUMS
     - onchanges:
-      - file: vault-package-gpg-file-managed-checksum
+      - file: vault-package-install-file-managed
       - file: vault-package-gpg-file-managed-signature

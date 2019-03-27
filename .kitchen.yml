@@ -50,8 +50,8 @@ suites:
               - vault
         vault.sls:
           vault:
-#            version: 0.11.1    # test upgrades by doing a double-converge, changing the version pillar between each one
-            version: 0.11.2
+#            version: 1.0.3    # test upgrades by doing a double-converge, changing the version pillar between each one
+            version: 1.1.0
             verify_download: False
 
   - name: dev_server

@@ -20,13 +20,29 @@ vault-package-install-file-directory:
     - name: /opt/vault/bin
     - makedirs: True
 
+vault-package-install-file-managed:
+  file.managed:
+    - name: /opt/vault/{{ vault.version }}_SHA256SUMS
+    - source: https://releases.hashicorp.com/vault/{{ vault.version }}/vault_{{ vault.version }}_SHA256SUMS
+    - skip_verify: True
+    - makedirs: True
+
+vault-package-install-service-dead:
+  service.dead:
+    - name: vault
+    - onchanges:
+      - file: vault-package-install-file-managed
+
 vault-package-install-archive-extracted:
   archive.extracted:
     - name: /opt/vault/bin
     - source: https://releases.hashicorp.com/vault/{{ vault.version }}/vault_{{ vault.version }}_{{ vault.platform }}.zip
     - source_hash: https://releases.hashicorp.com/vault/{{ vault.version }}/vault_{{ vault.version }}_SHA256SUMS
     - source_hash_name: vault_{{ vault.version }}_{{ vault.platform }}.zip
-    - enforce_toplevel: false
+    - enforce_toplevel: False
+    - overwrite: True
+    - onchanges:
+      - file: vault-package-install-file-managed
 
 vault-package-install-file-symlink:
   file.symlink:
