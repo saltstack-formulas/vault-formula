@@ -14,6 +14,10 @@ vault-package-clean-file-absent-data:
   file.absent:
     - name: /var/lib/vault
 
+vault-package-clean-file-absent-link:
+  file.absent:
+    - name: /usr/local/bin/vault
+
 vault-package-clean-user-absent:
   user.absent:
     - name: vault

@@ -12,7 +12,7 @@ vault-service-init-file-managed:
 vault-service-init-service-running:
   service.running:
     - name: vault
-    - enable: true
+    - enable: True
     - watch:
       - archive: vault-package-install-archive-extracted
       - file: vault-service-init-file-managed

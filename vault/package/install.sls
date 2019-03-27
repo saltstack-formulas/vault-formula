@@ -32,6 +32,7 @@ vault-package-install-service-dead:
     - name: vault
     - onchanges:
       - file: vault-package-install-file-managed
+    - onlyif: test -f /etc/systemd/system/vault.service
 
 vault-package-install-archive-extracted:
   archive.extracted:
