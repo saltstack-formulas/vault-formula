@@ -2,7 +2,7 @@
 # vim: ft=sls syntax=yaml softtabstop=2 tabstop=2 shiftwidth=2 expandtab autoindent
 
 vault:
-  version: 1.0.3
+  version: 1.1.0
   dev_mode: False
   verify_download: True
   self_signed_cert:
