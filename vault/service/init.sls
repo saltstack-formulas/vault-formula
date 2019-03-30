@@ -8,6 +8,12 @@ vault-service-init-file-managed:
     - name: {{ vault.service.path }}
     - source: {{ vault.service.source }}
     - template: jinja
+{% if grains.init == 'upstart' %}
+  cmd.run:
+    - name: initctl reload-configuration
+    - onchanges:
+      - file: vault-service-init-file-managed
+{% endif -%}
 
 vault-service-init-service-running:
   service.running:
