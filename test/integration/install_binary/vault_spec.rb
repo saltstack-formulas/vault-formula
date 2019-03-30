@@ -6,7 +6,7 @@ end
 describe command('/usr/local/bin/vault -version') do
   its(:exit_status) { should eq 0 }
   its(:stderr) { should be_empty }
-  its(:stdout) { should match(/^Vault v1.0.3 \('85909e3373aa743c34a6a0ab59131f61fd9e8e43'\)/) }
+  its(:stdout) { should match(/^Vault v1.1.0 \('36aa8c8dd1936e10ebd7a4c1d412ae0e6f7900bd'\)/) }
 end
 
 describe service('vault') do
