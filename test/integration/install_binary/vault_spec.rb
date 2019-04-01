@@ -6,7 +6,7 @@ end
 describe command('/usr/local/bin/vault -version') do
   its(:exit_status) { should eq 0 }
   its(:stderr) { should be_empty }
-  its(:stdout) { should match(/^Vault v0.11.2 \('2b1a4304374712953ff606c6a925bbe90a4e85dd'\)/) }
+  its(:stdout) { should match(/^Vault v1.1.0 \('36aa8c8dd1936e10ebd7a4c1d412ae0e6f7900bd'\)/) }
 end
 
 describe service('vault') do
@@ -15,6 +15,6 @@ describe service('vault') do
   it { should_not be_running }
 end
 
-describe file("/etc/vault/config/server.hcl") do
+describe file("/etc/vault/conf.d/config.json") do
   it { should_not be_a_file }
 end

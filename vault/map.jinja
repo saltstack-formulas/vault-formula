@@ -1,11 +1,18 @@
-{% import_yaml "vault/defaults.yaml" as defaults %}
-{% import_yaml "vault/osfamilymap.yaml" as osfamilymap %}
+# -*- coding: utf-8 -*-
+# vim: ft=sls syntax=yaml softtabstop=2 tabstop=2 shiftwidth=2 expandtab autoindent
 
-{% set vault = salt['grains.filter_by'](
-    defaults,
-    merge=salt['grains.filter_by'](
-      osfamilymap,
-      merge=salt['pillar.get']('vault', {}),
-    ),
-    base='vault')
- %}
+{% import_yaml "vault/defaults.yaml" or {} as defaults %}
+{% import_yaml "vault/osfamilymap.yaml" or {} as osfamilymap %}
+{% import_yaml "vault/initfamilymap.yaml" or {} as initfamilymap %}
+
+{%- set merged_defaults = salt['grains.filter_by'](defaults,
+    default='vault',
+    merge=salt['grains.filter_by'](osfamilymap, grain='os_family',
+      merge=salt['grains.filter_by'](initfamilymap, grain='init',
+        merge=salt['pillar.get']('vault:lookup', default={})
+      )
+    )
+) %}
+
+{#- Merge the vault pillar #}
+{%- set vault = salt['pillar.get']('vault', default=merged_defaults, merge=True) %}

@@ -23,22 +23,27 @@ Install the vault binary
 
 Install and configure the vault server
 
-To use it, just include *vault.server* in your *top.sls*, and configure it using pillars:
+To use it, just include *vault* in your *top.sls*, and configure it using pillars:
 
 ::
 
   vault:
-    version: 0.7.0
-    listen_protocol: tcp
-    listen_port: 8200
-    listen_address: 0.0.0.0
-    tls_disable: 0
-    default_lease_ttl: 24h
-    max_lease_ttl: 24h
-    self_signed_cert:
-      enabled: false
-    backend: {}
-    dev_mode: true
+    version: 1.1.0
+    platform: linux_amd64
+    dev_mode: True
+    verify_download: True
+    config:
+      storage:
+        file:
+          path: /var/lib/vault/data
+      listener:
+        tcp:
+          address: "127.0.0.1:8200"
+          tls_disable: True
+          tls_cert_file: ""
+          tls_key_file: ""
+      default_lease_ttl: 768h
+      max_lease_ttl: 768h
 
 Issues
 ======

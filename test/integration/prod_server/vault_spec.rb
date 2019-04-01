@@ -10,7 +10,7 @@ describe command('getcap $(readlink -f /usr/local/bin/vault)') do
   its(:stdout) { should match(/\/vault = cap_ipc_lock\+ep$/) }
 end
 
-describe file('/etc/vault/config/server.hcl') do
+describe file('/etc/vault/conf.d/config.json') do
   it { should be_a_file }
 end
 
