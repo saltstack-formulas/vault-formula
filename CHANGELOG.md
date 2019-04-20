@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/saltstack-formulas/vault-formula/compare/v1.0.0...v1.0.1) (2019-04-20)
+
+
+### Code Refactoring
+
+* **kitchen:** prefer `kitchen.yml` to `.kitchen.yml` ([5baaf24](https://github.com/saltstack-formulas/vault-formula/commit/5baaf24))
+
 # [1.0.0](https://github.com/saltstack-formulas/vault-formula/compare/v0.5.1...v1.0.0) (2019-04-01)
 
 
