@@ -37,8 +37,14 @@ This list is sorted by the number of commits per contributor in *descending* ord
    * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars1.githubusercontent.com/u/1435085?v=4' width='36' height='36' alt='@blbradley'>`
      - `@blbradley <https://github.com/blbradley>`_
      - 1
+   * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars3.githubusercontent.com/u/5306980?v=4' width='36' height='36' alt='@johnkeates'>`
+     - `@johnkeates <https://github.com/johnkeates>`_
+     - 1
    * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars1.githubusercontent.com/u/13322818?v=4' width='36' height='36' alt='@noelmcloughlin'>`
      - `@noelmcloughlin <https://github.com/noelmcloughlin>`_
+     - 1
+   * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars3.githubusercontent.com/u/3433835?v=4' width='36' height='36' alt='@n-rodriguez'>`
+     - `@n-rodriguez <https://github.com/n-rodriguez>`_
      - 1
 
 
