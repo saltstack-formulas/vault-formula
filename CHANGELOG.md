@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/saltstack-formulas/vault-formula/compare/v1.0.2...v1.0.3) (2019-05-13)
+
+
+### Documentation
+
+* **readme:** improve readme sections ([10e2bde](https://github.com/saltstack-formulas/vault-formula/commit/10e2bde))
+
 ## [1.0.2](https://github.com/saltstack-formulas/vault-formula/compare/v1.0.1...v1.0.2) (2019-05-13)
 
 
