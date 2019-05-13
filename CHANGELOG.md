@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/saltstack-formulas/vault-formula/compare/v1.0.1...v1.0.2) (2019-05-13)
+
+
+### Documentation
+
+* **readme:** update readme, add badges ([1fc3142](https://github.com/saltstack-formulas/vault-formula/commit/1fc3142))
+
 ## [1.0.1](https://github.com/saltstack-formulas/vault-formula/compare/v1.0.0...v1.0.1) (2019-04-20)
 
 
