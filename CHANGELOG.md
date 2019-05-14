@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.4](https://github.com/saltstack-formulas/vault-formula/compare/v1.0.3...v1.0.4) (2019-05-14)
+
+
+### Continuous Integration
+
+* **kitchen:** don't put Gemfile.lock in git ([cfd5daf](https://github.com/saltstack-formulas/vault-formula/commit/cfd5daf))
+* **kitchen:** update Gemfile from template-formula ([541ec63](https://github.com/saltstack-formulas/vault-formula/commit/541ec63))
+* **travis:** use default bundler on Travis ([b9f40b3](https://github.com/saltstack-formulas/vault-formula/commit/b9f40b3))
+
+
+### Documentation
+
+* **readme:** restore requirements section ([5f2256c](https://github.com/saltstack-formulas/vault-formula/commit/5f2256c))
+
 ## [1.0.3](https://github.com/saltstack-formulas/vault-formula/compare/v1.0.2...v1.0.3) (2019-05-13)
 
 
