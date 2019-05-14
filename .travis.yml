@@ -5,15 +5,11 @@ stages:
     if: branch = master AND type != pull_request
 
 sudo: required
-language: ruby
 cache: bundler
+language: ruby
 
 services:
   - docker
-
-
-before_install:
-  - gem install bundler --no-document
 
 env:
   - PLATFORM=ubuntu
@@ -54,4 +50,3 @@ jobs:
         script:
           # Run `semantic-release`
           - npx semantic-release@15
-
