@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.0.5 <https://github.com/saltstack-formulas/vault-formula/compare/v1.0.4...v1.0.5>`_ (2019-05-15)
+-------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **readme:** move requirements section under testing header (\ `dfca3a6 <https://github.com/saltstack-formulas/vault-formula/commit/dfca3a6>`_\ )
+
 `1.0.4 <https://github.com/saltstack-formulas/vault-formula/compare/v1.0.3...v1.0.4>`_ (2019-05-14)
 -------------------------------------------------------------------------------------------------------
 
