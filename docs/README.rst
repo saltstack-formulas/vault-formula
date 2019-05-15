@@ -85,8 +85,13 @@ Vault `v0.10.0 <https://github.com/hashicorp/vault/blob/master/CHANGELOG.md#0100
 
 The Salt execution modules are not compatible with this new backend, therefore if you intend to access Vault in dev mode using the Salt modules, it's suggested to use an outdated, but compatible version of Vault by setting a pillar value e.g. ``version: 0.9.6``.
 
+Testing
+-------
+
+Linux testing is done with ``kitchen-salt``.
+
 Requirements
-------------
+^^^^^^^^^^^^
 
 * Ruby
 * Docker
@@ -96,11 +101,6 @@ Requirements
   gem install bundler
   bundle install
   bundle exec kitchen test all
-
-Testing
--------
-
-Linux testing is done with ``kitchen-salt``.
 
 ``kitchen converge``
 ^^^^^^^^^^^^^^^^^^^^
