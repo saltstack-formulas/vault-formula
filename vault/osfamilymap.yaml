@@ -13,3 +13,11 @@ Arch:
 
 MacOS:
   platform: darwin_amd64
+
+FreeBSD:
+  gpg_pkg: gnupg
+  platform: freebsd_amd64
+  config_path: /usr/local/etc
+  service:
+    path: /usr/local/etc/rc.d/vault
+    source: salt://vault/files/vault.service.fbsd.j2
