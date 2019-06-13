@@ -58,11 +58,15 @@ vault-package-install-cmd-run:
       - archive: vault-package-install-archive-extracted
 {% else %}
 vault-package-install-login-file:
-  file.blockreplace:
+  file.replace:
     - name: /etc/login.conf
-    - marker_start: "daemon:\\"
-    - marker_end: "	:tc=default:"
-    - content: "	:memorylocked=256M:\\"
+    - pattern: |
+        ^daemon:\\(?:\n|\r\n?)(.+)$(?:\n|\r\n?)^(\t):tc=default:
+    - flags: ['MULTILINE']
+    - repl: |
+        daemon:\\
+        \t:memorylocked=256M:\\
+        \t:tc=default:
 
 vault-package-install-cmd-run:
   cmd.run:

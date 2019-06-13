@@ -10,11 +10,13 @@ language: ruby
 
 services:
   - docker
+  - vagrant
 
 env:
   - PLATFORM=ubuntu
   - PLATFORM=centos
   - PLATFORM=amazon
+  - PLATFORM=freebsd
 
 script: bundle exec kitchen test ${PLATFORM}
 
