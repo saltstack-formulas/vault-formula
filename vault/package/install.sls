@@ -50,9 +50,23 @@ vault-package-install-file-symlink:
     - name: /usr/local/bin/vault
     - target: /opt/vault/bin/vault
     - force: true
-
+{% if grains['os_family'] != "FreeBSD" %} 
 vault-package-install-cmd-run:
   cmd.run:
     - name: setcap cap_ipc_lock=+ep /opt/vault/bin/vault
     - onchanges:
       - archive: vault-package-install-archive-extracted
+{% else %}
+vault-package-install-login-file:
+  file.blockreplace:
+    - name: /etc/login.conf
+    - marker_start: "daemon:\\"
+    - marker_end: "	:tc=default:"
+    - content: "	:memorylocked=256M:\\"
+
+vault-package-install-cmd-run:
+  cmd.run:
+    - name: cap_mkdb /etc/login.conf
+    - watch:
+      - file: vault-package-install-login-file
+{% endif %}
