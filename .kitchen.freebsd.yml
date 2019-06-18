@@ -7,7 +7,7 @@ driver:
     memory: 512
   provision: true
   vagrantfiles:
-          - .freebsd_provision.rb
+    - .freebsd_provision.rb
 
 verifier:
   name: inspec

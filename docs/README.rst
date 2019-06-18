@@ -95,12 +95,21 @@ Requirements
 
 * Ruby
 * Docker
+* Vagrant (FreeBSD)
 
+Linux:
 ::
 
   gem install bundler
   bundle install
   bundle exec kitchen test all
+
+FreeBSD:
+::
+
+  gem install bundler
+  bundle install
+  bundle exec KITCHEN_LOCAL_YAML=.kitchen.freebsd.yml kitchen test -t test_freebsd/integration
 
 ``kitchen converge``
 ^^^^^^^^^^^^^^^^^^^^
