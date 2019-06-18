@@ -34,6 +34,7 @@ load_rc_config $name
 : ${vault_user:="vault"}
 : ${vault_group:="vault"}
 : ${vault_config:="{{ vault.config_path }}/vault/conf.d/config.json"}
+: ${vault_env:="HOME=/var/lib/vault"}
 
 DAEMON=$(/usr/sbin/daemon 2>&1 | grep -q syslog ; echo $?)
 if [ ${DAEMON} -eq 0 ]; then
