@@ -16,8 +16,8 @@ vault-package-gpg-pkg-installed:
 
 vault-package-gpg-cmd-run-import:
   cmd.run:
-    - name: gpg --import /opt/vault/hashicorp.asc
-    - unless: gpg --list-keys {{ vault.hashicorp_key_id }}
+    - name: gpg2 --import /opt/vault/hashicorp.asc
+    - unless: gpg2 --list-keys {{ vault.hashicorp_key_id }}
 
 vault-package-gpg-file-managed-signature:
   file.managed:
@@ -28,7 +28,7 @@ vault-package-gpg-file-managed-signature:
 
 vault-package-gpg-cmd-run-verify:
   cmd.run:
-    - name: gpg --verify /opt/vault/{{ vault.version }}_SHA256SUMS.sig /opt/vault/{{ vault.version }}_SHA256SUMS
+    - name: gpg2 --verify /opt/vault/{{ vault.version }}_SHA256SUMS.sig /opt/vault/{{ vault.version }}_SHA256SUMS
     - onchanges:
       - file: vault-package-install-file-managed
       - file: vault-package-gpg-file-managed-signature
