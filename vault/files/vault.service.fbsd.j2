@@ -60,12 +60,14 @@ fi
 pidfile=/var/run/vault.pid
 procname="/usr/local/bin/vault"
 command="/usr/sbin/daemon"
-command_args="-f ${vault_syslog_output_flags} -p ${pidfile} /usr/bin/env ${vault_env} ${procname} server -config=${vault_config}"
+command_args="-f ${vault_syslog_output_flags} -p ${pidfile} /usr/bin/env ${vault_env} ${procname} server {% if vault.dev_mode %} -dev {% else %} -config=${vault_config} {% endif %}"
 
 extra_commands="reload monitor"
 monitor_cmd=vault_monitor
 start_precmd=vault_startprecmd
+{% if not vault.dev_mode %}
 required_files="$vault_config"
+{% endif %}
 
 vault_monitor()
 {
