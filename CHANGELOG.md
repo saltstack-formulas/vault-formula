@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/saltstack-formulas/vault-formula/compare/v1.0.5...v1.0.6) (2019-06-24)
+
+
+### Bug Fixes
+
+* use gpg2 ([d755cb4](https://github.com/saltstack-formulas/vault-formula/commit/d755cb4))
+
 ## [1.0.5](https://github.com/saltstack-formulas/vault-formula/compare/v1.0.4...v1.0.5) (2019-05-15)
 
 
