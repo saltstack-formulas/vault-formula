@@ -4,5 +4,9 @@
 Debian:
   setcap_pkg: libcap2-bin
 
+Suse:
+  gpg_pkg: gpg2
+  setcap_pkg: libcap-progs
+
 MacOS:
   platform: darwin_amd64
