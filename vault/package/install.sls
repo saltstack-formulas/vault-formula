@@ -51,8 +51,14 @@ vault-package-install-file-symlink:
     - target: /opt/vault/bin/vault
     - force: true
 
+vault-package-install-pkg-installed:
+  pkg.installed:
+    - name: {{ vault.setcap_pkg }}
+
 vault-package-install-cmd-run:
   cmd.run:
     - name: setcap cap_ipc_lock=+ep /opt/vault/bin/vault
+    - require:
+      - pkg: vault-package-install-pkg-installed
     - onchanges:
       - archive: vault-package-install-archive-extracted
