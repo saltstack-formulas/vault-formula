@@ -12,8 +12,10 @@ vault-package-install-user-present:
   user.present:
     - name: vault
     - system: True
-    - gid_from_name: True
+    - gid: vault
     - home: /var/lib/vault
+    - require:
+      - group: vault-package-install-group-present
 
 vault-package-install-file-directory:
   file.directory:
