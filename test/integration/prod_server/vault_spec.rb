@@ -10,8 +10,16 @@ describe command('getcap $(readlink -f /usr/local/bin/vault)') do
   its(:stdout) { should match(/\/vault = cap_ipc_lock\+ep$/) }
 end
 
+describe user('vault') do
+  it { should exist }
+  its('group') { should eq 'vault' }
+end
+
 describe file('/etc/vault/conf.d/config.json') do
   it { should be_a_file }
+  its('owner') { should eq 'root' }
+  its('group') { should eq 'vault' }
+  its('mode') { should cmp '0640' }
 end
 
 describe.one do

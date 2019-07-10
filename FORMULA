@@ -1,9 +1,9 @@
 name: vault
-os: Debian, Ubuntu, RedHat, Fedora, CentOS, Amazon
-os_family: Debian, RedHat
+os: Debian, Ubuntu, RedHat, Fedora, CentOS, Amazon, SUSE
+os_family: Debian, RedHat, Suse
 version: 1.0.6
 release: 1
-minimum_version: 2018.3
+minimum_version: 2017.7
 summary: Vault formula
 description: Formula to install and configure Hashicorp Vault
 top_level_dir: vault
