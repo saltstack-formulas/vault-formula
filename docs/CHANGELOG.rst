@@ -2,6 +2,40 @@
 Changelog
 =========
 
+`1.1.0 <https://github.com/saltstack-formulas/vault-formula/compare/v1.0.6...v1.1.0>`_ (2019-07-10)
+-------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **package:** explicitly require package providing setcap (\ `d476700 <https://github.com/saltstack-formulas/vault-formula/commit/d476700>`_\ )
+* **user:** handle removal of ``gid_from_name`` in Salt develop branch (\ `dee3748 <https://github.com/saltstack-formulas/vault-formula/commit/dee3748>`_\ ), closes `saltstack/salt#48640 <https://github.com/saltstack/salt/issues/48640>`_
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **defaults:** place common values in defaults.yaml (\ `3656e31 <https://github.com/saltstack-formulas/vault-formula/commit/3656e31>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen+travis:** bring into line with ``template-formula`` (\ `34f05bd <https://github.com/saltstack-formulas/vault-formula/commit/34f05bd>`_\ )
+
+Features
+^^^^^^^^
+
+
+* add support for openSUSE (\ `76b8ac3 <https://github.com/saltstack-formulas/vault-formula/commit/76b8ac3>`_\ )
+
+Tests
+^^^^^
+
+
+* **user+group:** test for vault user/group existence (\ `ff5cdf9 <https://github.com/saltstack-formulas/vault-formula/commit/ff5cdf9>`_\ )
+
 `1.0.6 <https://github.com/saltstack-formulas/vault-formula/compare/v1.0.5...v1.0.6>`_ (2019-06-24)
 -------------------------------------------------------------------------------------------------------
 
