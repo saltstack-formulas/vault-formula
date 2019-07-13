@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.1.1 <https://github.com/saltstack-formulas/vault-formula/compare/v1.1.0...v1.1.1>`_ (2019-07-13)
+-------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **kitchen+inspec:** move inline pillars to files (\ `4dc3025 <https://github.com/saltstack-formulas/vault-formula/commit/4dc3025>`_\ )
+
 `1.1.0 <https://github.com/saltstack-formulas/vault-formula/compare/v1.0.6...v1.1.0>`_ (2019-07-10)
 -------------------------------------------------------------------------------------------------------
 
