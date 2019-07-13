@@ -144,12 +144,8 @@ suites:
           base:
             '*':
               - vault
-        vault.sls:
-          vault:
-#            version: 1.0.3    # test upgrades by doing a double-converge, changing the version pillar between each one
-            version: 1.1.0
-            verify_download: False
-
+      pillars_from_files:
+        vault.sls: test/salt/pillar/install_binary.sls
   - name: dev_server
     provisioner:
       state_top:
@@ -161,9 +157,8 @@ suites:
           base:
             '*':
               - vault
-        vault.sls:
-          vault:
-            dev_mode: True
+      pillars_from_files:
+        vault.sls: test/salt/pillar/dev_server.sls
   - name: prod_server
     provisioner:
       state_top:
@@ -175,19 +170,5 @@ suites:
           base:
             '*':
               - vault
-        vault.sls:
-          vault:
-            config:
-              storage:
-                file:
-                  path: /var/lib/vault/data
-            tls_disable: 1
-            self_signed_cert:
-              enabled: True
-              hostname: localhost
-              password: localhost
-              country: GB
-              state: England
-              city: London
-              org: example.com
-              org_unit: testing
+      pillars_from_files:
+        vault.sls: test/salt/pillar/prod_server.sls
