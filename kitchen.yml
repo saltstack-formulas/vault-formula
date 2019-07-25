@@ -52,7 +52,7 @@ platforms:
         - sh bootstrap-salt.sh -XdPbfrq -x python3 git develop
       run_command: /usr/lib/systemd/systemd
 
-  ## SALT 2019.2
+  ## SALT `2019.2`
   - name: debian-9-2019-2-py3
     driver:
       image: netmanagers/salt-2019.2-py3:debian-9
@@ -70,7 +70,7 @@ platforms:
       image: netmanagers/salt-2019.2-py3:opensuse-leap-15
       run_command: /usr/lib/systemd/systemd
 
-  ## SALT 2018.3
+  ## SALT `2018.3`
   - name: debian-9-2018-3-py2
     driver:
       image: netmanagers/salt-2018.3-py2:debian-9
@@ -83,25 +83,18 @@ platforms:
   - name: fedora-29-2018-3-py2
     driver:
       image: netmanagers/salt-2018.3-py2:fedora-29
-  # TODO: Use this when fixed instead of `opensuse-leap-42`
-  # Ref: https://github.com/netmanagers/salt-image-builder/issues/2
-  # - name: opensuse-leap-15-2018-3-py2
-  #   driver:
-  #     image: netmanagers/salt-2018.3-py2:opensuse-leap-15
-  #     run_command: /usr/lib/systemd/systemd
   - name: opensuse-leap-42-2018-3-py2
     driver:
       image: netmanagers/salt-2018.3-py2:opensuse-leap-42
       run_command: /usr/lib/systemd/systemd
 
-  ## SALT 2017.7
+  ## SALT `2017.7`
   - name: debian-8-2017-7-py2
     driver:
       image: netmanagers/salt-2017.7-py2:debian-8
   - name: ubuntu-1604-2017-7-py2
     driver:
       image: netmanagers/salt-2017.7-py2:ubuntu-16.04
-  # TODO: Modify the formula to work for non-`systemd` platforms
   - name: centos-6-2017-7-py2
     driver:
       image: netmanagers/salt-2017.7-py2:centos-6
@@ -146,6 +139,9 @@ suites:
               - vault
       pillars_from_files:
         vault.sls: test/salt/pillar/install_binary.sls
+    verifier:
+      inspec_tests:
+        - path: test/integration/install_binary
   - name: dev_server
     provisioner:
       state_top:
@@ -159,6 +155,9 @@ suites:
               - vault
       pillars_from_files:
         vault.sls: test/salt/pillar/dev_server.sls
+    verifier:
+      inspec_tests:
+        - path: test/integration/dev_server
   - name: prod_server
     provisioner:
       state_top:
@@ -172,3 +171,6 @@ suites:
               - vault
       pillars_from_files:
         vault.sls: test/salt/pillar/prod_server.sls
+    verifier:
+      inspec_tests:
+        - path: test/integration/prod_server
