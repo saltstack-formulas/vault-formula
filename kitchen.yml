@@ -17,7 +17,8 @@ platforms:
       platform: rhel
       run_command: /sbin/init
       provision_command:
-        - curl -L https://bootstrap.saltstack.com | sh -s -- -X     # install latest stable Salt
+        # install latest stable Salt
+        - curl -L https://bootstrap.saltstack.com | sh -s -- -X
 
   ## SALT `develop`
   - name: debian-9-develop-py3

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# vim: ft=sls syntax=yaml softtabstop=2 tabstop=2 shiftwidth=2 expandtab autoindent
-
+# vim: ft=yaml
+---
 vault:
   version: 1.1.0
   platform: linux_amd64
   gpg_pkg: gnupg2
   setcap_pkg: libcap
-  dev_mode: False
-  verify_download: True
+  dev_mode: false
+  verify_download: true
   self_signed_cert:
-    enabled: False
+    enabled: false
   config:
     listener:
       tcp:

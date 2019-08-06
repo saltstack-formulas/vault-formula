@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# vim: ft=sls syntax=yaml softtabstop=2 tabstop=2 shiftwidth=2 expandtab autoindent
-
+# vim: ft=yaml
+---
 vault:
   version: 1.1.0
   platform: linux_amd64
-  dev_mode: False
-  verify_download: True
+  dev_mode: false
+  verify_download: true
   config:
     storage:
       consul:
@@ -51,4 +51,3 @@ vault:
     oEIgXTMyCILo34Fa/C6VCm2WBgz9zZO8/rHIiQm1J5zqz0DrDwKBUM9C
     =LYpS
     -----END PGP PUBLIC KEY BLOCK-----
-
