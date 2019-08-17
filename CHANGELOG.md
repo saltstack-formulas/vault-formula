@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.2.0](https://github.com/saltstack-formulas/vault-formula/compare/v1.1.1...v1.2.0) (2019-08-17)
+
+
+### Features
+
+* **yamllint:** include for this repo and apply rules throughout ([073f66e](https://github.com/saltstack-formulas/vault-formula/commit/073f66e))
+
 ## [1.1.1](https://github.com/saltstack-formulas/vault-formula/compare/v1.1.0...v1.1.1) (2019-07-13)
 
 
