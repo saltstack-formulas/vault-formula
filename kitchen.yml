@@ -21,9 +21,9 @@ platforms:
         - curl -L https://bootstrap.saltstack.com | sh -s -- -X
 
   ## SALT `develop`
-  - name: debian-9-develop-py3
+  - name: debian-10-develop-py3
     driver:
-      image: netmanagers/salt-develop-py3:debian-9
+      image: netmanagers/salt-develop-py3:debian-10
       provision_command:
         - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
         - sh bootstrap-salt.sh -XdPbfrq -x python3 git develop
@@ -52,6 +52,12 @@ platforms:
         - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
         - sh bootstrap-salt.sh -XdPbfrq -x python3 git develop
       run_command: /usr/lib/systemd/systemd
+  - name: amazonlinux-2-develop-py2
+    driver:
+      image: netmanagers/salt-develop-py2:amazonlinux-2
+      provision_command:
+        - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+        - sh bootstrap-salt.sh -XdPbfrq -x python2 git develop
 
   ## SALT `2019.2`
   - name: debian-9-2019-2-py3
@@ -70,6 +76,9 @@ platforms:
     driver:
       image: netmanagers/salt-2019.2-py3:opensuse-leap-15
       run_command: /usr/lib/systemd/systemd
+  - name: amazonlinux-2-2019-2-py2
+    driver:
+      image: netmanagers/salt-2019.2-py2:amazonlinux-2
 
   ## SALT `2018.3`
   - name: debian-9-2018-3-py2
@@ -84,10 +93,13 @@ platforms:
   - name: fedora-29-2018-3-py2
     driver:
       image: netmanagers/salt-2018.3-py2:fedora-29
-  - name: opensuse-leap-42-2018-3-py2
+  - name: opensuse-leap-15-2018-3-py2
     driver:
-      image: netmanagers/salt-2018.3-py2:opensuse-leap-42
+      image: netmanagers/salt-2018.3-py2:opensuse-leap-15
       run_command: /usr/lib/systemd/systemd
+  - name: amazonlinux-2-2018-3-py2
+    driver:
+      image: netmanagers/salt-2018.3-py2:amazonlinux-2
 
   ## SALT `2017.7`
   - name: debian-8-2017-7-py2
@@ -107,6 +119,9 @@ platforms:
     driver:
       image: netmanagers/salt-2017.7-py2:opensuse-leap-15
       run_command: /usr/lib/systemd/systemd
+  - name: amazonlinux-2-2017-7-py2
+    driver:
+      image: netmanagers/salt-2017.7-py2:amazonlinux-2
 
 provisioner:
   name: salt_solo
