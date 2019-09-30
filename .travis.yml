@@ -29,15 +29,15 @@ env:
     # - INSTANCE: debian-9-2019-2-py3
     - INSTANCE: prod-server-ubuntu-1804-2019-2-py3
     # - INSTANCE: centos-7-2019-2-py3
-    - INSTANCE: dev-server-fedora-30-2019-2-py3
+    - INSTANCE: prod-server-fedora-30-2019-2-py3
     # - INSTANCE: opensuse-leap-15-2019-2-py3
-    - INSTANCE: install-binary-amazonlinux-2-2019-2-py2
+    - INSTANCE: prod-server-amazonlinux-2-2019-2-py2
     # - INSTANCE: arch-base-latest-2019-2-py2
     # - INSTANCE: debian-9-2018-3-py2
     # - INSTANCE: ubuntu-1604-2018-3-py2
     - INSTANCE: prod-server-centos-7-2018-3-py2
     # - INSTANCE: fedora-29-2018-3-py2
-    - INSTANCE: dev-server-opensuse-leap-15-2018-3-py2
+    - INSTANCE: prod-server-opensuse-leap-15-2018-3-py2
     # - INSTANCE: amazonlinux-2-2018-3-py2
     # - INSTANCE: arch-base-latest-2018-3-py2
     # - INSTANCE: debian-8-2017-7-py2
@@ -46,7 +46,7 @@ env:
     # - INSTANCE: fedora-29-2017-7-py2
     # - INSTANCE: opensuse-leap-15-2017-7-py2
     # - INSTANCE: amazonlinux-2-2017-7-py2
-    - INSTANCE: install-binary-arch-base-latest-2017-7-py2
+    - INSTANCE: prod-server-arch-base-latest-2017-7-py2
 
 script:
   - bin/kitchen verify ${INSTANCE}
