@@ -7,7 +7,7 @@ end
 describe.one do
   describe file('/etc/systemd/system/vault.service') do
     it { should be_a_file }
-    its(:content) { should_not match /syslog/ }
+    its(:content) { should_not match(/syslog/) }
   end
 
   describe file('/etc/init/vault.conf') do
@@ -28,7 +28,7 @@ describe.one do
   describe command('journalctl -u vault') do
     its(:exit_status) { should eq 0 }
     its(:stderr) { should be_empty }
-    its(:stdout) { should match /WARNING! dev mode is enabled!/ }
+    its(:stdout) { should match(/WARNING! dev mode is enabled!/) }
   end
 
   describe file('/var/log/vault.log') do

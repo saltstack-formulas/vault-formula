@@ -8,5 +8,8 @@ Suse:
   gpg_pkg: gpg2
   setcap_pkg: libcap-progs
 
+Arch:
+  gpg_pkg: gnupg
+
 MacOS:
   platform: darwin_amd64
