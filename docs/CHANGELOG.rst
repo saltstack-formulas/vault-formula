@@ -2,6 +2,36 @@
 Changelog
 =========
 
+`1.2.1 <https://github.com/saltstack-formulas/vault-formula/compare/v1.2.0...v1.2.1>`_ (2019-10-01)
+-------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **gemfile:** restrict ``inspec`` version to ``~> 4.16.0`` (\ `c82034a <https://github.com/saltstack-formulas/vault-formula/commit/c82034a>`_\ ), closes `/travis-ci.com/saltstack-formulas/vault-formula/jobs/239671364#L2219-L2220 <https://github.com//travis-ci.com/saltstack-formulas/vault-formula/jobs/239671364/issues/L2219-L2220>`_ `/travis-ci.com/saltstack-formulas/vault-formula/jobs/239671365#L1925-L1926 <https://github.com//travis-ci.com/saltstack-formulas/vault-formula/jobs/239671365/issues/L1925-L1926>`_ `/travis-ci.com/saltstack-formulas/vault-formula/jobs/239671366#L1515-L1520 <https://github.com//travis-ci.com/saltstack-formulas/vault-formula/jobs/239671366/issues/L1515-L1520>`_
+* **inspec:** fix Ruby lint warnings (\ `9d823ed <https://github.com/saltstack-formulas/vault-formula/commit/9d823ed>`_\ )
+* **osfamilymap:** add support for ``Arch`` (\ `b64a589 <https://github.com/saltstack-formulas/vault-formula/commit/b64a589>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* use ``dist: bionic`` & apply ``opensuse-leap-15`` SCP error workaround (\ `d2c97f4 <https://github.com/saltstack-formulas/vault-formula/commit/d2c97f4>`_\ )
+* **kitchen:** change ``log_level`` to ``debug`` instead of ``info`` (\ `79b902e <https://github.com/saltstack-formulas/vault-formula/commit/79b902e>`_\ )
+* **kitchen+travis:** replace EOL pre-salted images (\ `346cd1e <https://github.com/saltstack-formulas/vault-formula/commit/346cd1e>`_\ )
+* **platform:** add ``arch-base-latest`` (\ `6dd656f <https://github.com/saltstack-formulas/vault-formula/commit/6dd656f>`_\ )
+* **travis:** apply suggestions from code review (\ `800d842 <https://github.com/saltstack-formulas/vault-formula/commit/800d842>`_\ )
+* **travis:** split suites across instances (\ `bfdba0c <https://github.com/saltstack-formulas/vault-formula/commit/bfdba0c>`_\ )
+* **travis:** use ``kitchen verify`` instead of ``kitchen test`` (\ `6939af9 <https://github.com/saltstack-formulas/vault-formula/commit/6939af9>`_\ )
+* **yamllint:** add rule ``empty-values`` & use new ``yaml-files`` setting (\ `ece89fa <https://github.com/saltstack-formulas/vault-formula/commit/ece89fa>`_\ )
+
+Tests
+^^^^^
+
+
+* **inspec:** move tests to standard ``controls`` sub-directory (\ `bd8649c <https://github.com/saltstack-formulas/vault-formula/commit/bd8649c>`_\ )
+
 `1.2.0 <https://github.com/saltstack-formulas/vault-formula/compare/v1.1.1...v1.2.0>`_ (2019-08-17)
 -------------------------------------------------------------------------------------------------------
 
