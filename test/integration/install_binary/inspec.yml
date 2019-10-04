@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
-name: install_binary
-title: vault formula
+name: vault-install-binary
+title: Vault Formula Binary Installation
 maintainer: SaltStack Formulas
 license: Apache-2.0
-summary: Verify that the vault binary is installed correctly
+summary: Verify that the Vault binary is installed correctly
+version: 0.1
 supports:
   - platform-name: debian
   - platform-name: ubuntu
