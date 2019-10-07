@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
-name: vault-prod-server
-title: Vault Formula Production Server
+name: vault-server-baseline
+title: Vault Formula Server Baseline
 maintainer: SaltStack Formulas
 license: Apache-2.0
-summary: Verify that the Vault Server (Production) is setup and configured correctly
+summary: Verify that the Vault server has a baseline setup
 version: 0.1
 supports:
   - platform-name: debian
@@ -17,6 +17,3 @@ supports:
   - platform-name: freebsd
   - platform-name: amazon
   - platform-name: arch
-depends:
-  - name: vault-server-baseline
-    path: test/integration/server-baseline

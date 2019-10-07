@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 ---
-name: dev_server
-title: vault formula
+name: vault-dev-server
+title: Vault Formula Development Server
 maintainer: SaltStack Formulas
 license: Apache-2.0
-summary: Verify that the vault development server is setup and configured correctly
+summary: Verify that the Vault Server (Development) is setup and configured correctly
+version: 0.1
 supports:
   - platform-name: debian
   - platform-name: ubuntu
@@ -16,3 +17,6 @@ supports:
   - platform-name: freebsd
   - platform-name: amazon
   - platform-name: arch
+depends:
+  - name: vault-server-baseline
+    path: test/integration/server-baseline
