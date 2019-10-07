@@ -11,14 +11,14 @@ driver:
 # Make sure the platforms listed below match up with
 # the `env.matrix` instances defined in `.travis.yml`
 platforms:
-  - name: amazonlinux
+  - name: amazonlinux-1-2019-2-py2
     driver:
       image: amazonlinux:1
       platform: rhel
       run_command: /sbin/init
       provision_command:
         # install latest stable Salt
-        - curl -L https://bootstrap.saltstack.com | sh -s -- -X
+        - curl -L https://bootstrap.saltstack.com | sh -s -- -X stable 2019.2.0
 
   ## SALT `develop`
   - name: debian-10-develop-py3
