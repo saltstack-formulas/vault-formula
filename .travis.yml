@@ -3,6 +3,7 @@
 ---
 dist: bionic
 stages:
+  - test upgrades
   - test
   - lint
   - name: release
@@ -19,7 +20,7 @@ services:
 # the `platforms` defined in `kitchen.yml`
 env:
   matrix:
-    - INSTANCE: debian-10-develop-py3
+    - INSTANCE: \(dev\|prod\)-server-debian-10-develop-py3
     # - INSTANCE: ubuntu-1804-develop-py3
     # - INSTANCE: centos-7-develop-py3
     # - INSTANCE: fedora-30-develop-py3
@@ -53,6 +54,19 @@ script:
 
 jobs:
   include:
+    # Test upgrading the Vault binary by setting the pillar value to
+    # an earlier version, performing a converge, restoring the later
+    # pillar value, performing another converge then finally verifying
+    # the install binary is the correct version
+    - stage: test upgrades
+      env:
+        - INSTANCE: install-binary-debian-9-2019-2-py3
+      script:
+        - sed --in-place=.bak 's/1.1.0/1.0.3/' test/salt/pillar/install_binary.sls
+        - bin/kitchen converge ${INSTANCE}
+        - git restore test/salt/pillar/install_binary.sls
+        - bin/kitchen converge ${INSTANCE}
+        - bin/kitchen verify ${INSTANCE}
     # Define the `lint` stage (runs `yamllint` and `commitlint`)
     - stage: lint
       language: node_js
