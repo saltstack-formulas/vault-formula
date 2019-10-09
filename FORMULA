@@ -1,7 +1,7 @@
 name: vault
 os: Debian, Ubuntu, RedHat, Fedora, CentOS, Amazon, SUSE
 os_family: Debian, RedHat, Suse
-version: 1.2.1
+version: 1.2.2
 release: 1
 minimum_version: 2017.7
 summary: Vault formula

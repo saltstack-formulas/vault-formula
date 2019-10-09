@@ -2,6 +2,23 @@
 Changelog
 =========
 
+`1.2.2 <https://github.com/saltstack-formulas/vault-formula/compare/v1.2.1...v1.2.2>`_ (2019-10-09)
+-------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **cert-gen.sh.j2:** fix ``salt-lint`` errors (\ ` <https://github.com/saltstack-formulas/vault-formula/commit/12fd2f9>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** install required packages to bootstrapped ``opensuse`` (\ ` <https://github.com/saltstack-formulas/vault-formula/commit/5f1c3cd>`_\ )
+* **kitchen:** use bootstrapped ``opensuse`` images until ``2019.2.2`` (\ ` <https://github.com/saltstack-formulas/vault-formula/commit/c090077>`_\ )
+* merge travis matrix, add ``salt-lint`` & ``rubocop`` to ``lint`` job (\ ` <https://github.com/saltstack-formulas/vault-formula/commit/ba82312>`_\ )
+
 `1.2.1 <https://github.com/saltstack-formulas/vault-formula/compare/v1.2.0...v1.2.1>`_ (2019-10-01)
 -------------------------------------------------------------------------------------------------------
 
