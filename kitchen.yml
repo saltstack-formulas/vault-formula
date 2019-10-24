@@ -20,13 +20,13 @@ platforms:
         # install latest stable Salt
         - curl -L https://bootstrap.saltstack.com | sh -s -- -X
 
-  ## SALT `develop`
-  - name: debian-10-develop-py3
+  ## SALT `develop` => `master`
+  - name: debian-10-master-py3
     driver:
-      image: netmanagers/salt-develop-py3:debian-10
+      image: netmanagers/salt-master-py3:debian-10
       provision_command:
         - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
-        - sh bootstrap-salt.sh -XdPbfrq -x python3 git develop
+        - sh bootstrap-salt.sh -XdPbfrq -x python3 git master
   - name: ubuntu-1804-develop-py3
     driver:
       image: netmanagers/salt-develop-py3:ubuntu-18.04
