@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.2.3](https://github.com/saltstack-formulas/vault-formula/compare/v1.2.2...v1.2.3) (2019-11-07)
+
+
+### Bug Fixes
+
+* **release.config.js:** use full commit hash in commit link [skip ci] ([297db70](https://github.com/saltstack-formulas/vault-formula/commit/297db702a9956dbfb24c3a9eb484bff151cdb3c2))
+
+
+### Continuous Integration
+
+* **kitchen:** use `debian-10-master-py3` instead of `develop` [skip ci] ([bc13a28](https://github.com/saltstack-formulas/vault-formula/commit/bc13a28c4ca3a746dc9b79d87e66bd4cda566164))
+* **kitchen:** use `develop` image until `master` is ready (`amazonlinux`) [skip ci] ([c38389c](https://github.com/saltstack-formulas/vault-formula/commit/c38389c181dfb663c7783680f5f448676647882c))
+* **kitchen+travis:** upgrade matrix after `2019.2.2` release [skip ci] ([8c9631e](https://github.com/saltstack-formulas/vault-formula/commit/8c9631efeaee70843ce1e727b47582292a192f33))
+* **kitchen+travis:** use bootstrapped `amazonlinux-1` images ([a9576e8](https://github.com/saltstack-formulas/vault-formula/commit/a9576e816b292cd47abe4c609b794b16f879cc87))
+* **travis:** update `salt-lint` config for `v0.0.10` [skip ci] ([562874c](https://github.com/saltstack-formulas/vault-formula/commit/562874c1eba10f8cd196ca3fb965cb11a3333950))
+* merge travis matrix, add `salt-lint` & `rubocop` to `lint` job ([af7f503](https://github.com/saltstack-formulas/vault-formula/commit/af7f5037c0b15b481f1cfd3d24e18ab5faed5fb6))
+
+
+### Documentation
+
+* **contributing:** remove to use org-level file instead [skip ci] ([7214aa7](https://github.com/saltstack-formulas/vault-formula/commit/7214aa7361104b183b16fea0b3bea0a1974ba46d))
+* **readme:** update link to `CONTRIBUTING` [skip ci] ([e5542dd](https://github.com/saltstack-formulas/vault-formula/commit/e5542dd3c4c1333340fa8f13ad1caf39f5552167))
+
+
+### Performance Improvements
+
+* **travis:** improve `salt-lint` invocation [skip ci] ([8b098a3](https://github.com/saltstack-formulas/vault-formula/commit/8b098a3a2729740c25e9204c150e8679ba8546bd))
+
 ## [1.2.2](https://github.com/saltstack-formulas/vault-formula/compare/v1.2.1...v1.2.2) (2019-10-09)
 
 
