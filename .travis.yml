@@ -75,7 +75,6 @@ jobs:
     # - env: INSTANCE=prod-server-fedora-31-master-py3
     # - env: INSTANCE=prod-server-opensuse-leap-151-master-py3
     # - env: INSTANCE=prod-server-amazonlinux-2-master-py3
-    # - env: INSTANCE=prod-server-arch-base-latest-master-py2
     # - env: INSTANCE=prod-server-debian-10-3000-1-py3
     - env: INSTANCE=prod-server-ubuntu-1804-3000-1-py3
     # - env: INSTANCE=prod-server-centos-8-3000-1-py3
