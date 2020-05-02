@@ -75,13 +75,17 @@ jobs:
     # - env: INSTANCE=prod-server-fedora-31-master-py3
     # - env: INSTANCE=prod-server-opensuse-leap-151-master-py3
     # - env: INSTANCE=prod-server-amazonlinux-2-master-py3
-    # - env: INSTANCE=prod-server-debian-10-3000-1-py3
-    - env: INSTANCE=prod-server-ubuntu-1804-3000-1-py3
-    # - env: INSTANCE=prod-server-centos-8-3000-1-py3
-    # - env: INSTANCE=prod-server-fedora-31-3000-1-py3
-    - env: INSTANCE=prod-server-opensuse-leap-151-3000-1-py3
-    - env: INSTANCE=prod-server-amazonlinux-2-3000-1-py3
-    # - env: INSTANCE=prod-server-arch-base-latest-3000-1-py2
+    # - env: INSTANCE=prod-server-debian-10-3000-2-py3
+    # - env: INSTANCE=prod-server-debian-9-3000-2-py3
+    - env: INSTANCE=prod-server-ubuntu-1804-3000-2-py3
+    # - env: INSTANCE=prod-server-centos-8-3000-2-py3
+    # - env: INSTANCE=prod-server-centos-7-3000-2-py3
+    # - env: INSTANCE=prod-server-fedora-31-3000-2-py3
+    - env: INSTANCE=prod-server-opensuse-leap-151-3000-2-py3
+    - env: INSTANCE=prod-server-amazonlinux-2-3000-2-py3
+    # - env: INSTANCE=prod-server-ubuntu-1804-3000-2-py2
+    # - env: INSTANCE=prod-server-ubuntu-1604-3000-2-py2
+    # - env: INSTANCE=prod-server-arch-base-latest-3000-2-py2
     # - env: INSTANCE=prod-server-debian-10-2019-2-py3
     # - env: INSTANCE=prod-server-debian-9-2019-2-py3
     # - env: INSTANCE=prod-server-ubuntu-1804-2019-2-py3
@@ -91,19 +95,9 @@ jobs:
     - env: INSTANCE=prod-server-fedora-31-2019-2-py3
     # - env: INSTANCE=prod-server-opensuse-leap-151-2019-2-py3
     # - env: INSTANCE=prod-server-amazonlinux-2-2019-2-py3
-    # - env: INSTANCE=prod-server-ubuntu-1804-2019-2-py2
+    # - env: INSTANCE=prod-server-centos-6-2019-2-py2
     # - env: INSTANCE=prod-server-amazonlinux-1-2019-2-py2
-    # - env: INSTANCE=prod-server-arch-base-latest-2019-2-py2
-    # - env: INSTANCE=prod-server-centos-7-2018-3-py3
-    # - env: INSTANCE=prod-server-fedora-30-2018-3-py3
-    # - env: INSTANCE=prod-server-debian-9-2018-3-py2
-    # - env: INSTANCE=prod-server-debian-8-2018-3-py2
-    # - env: INSTANCE=prod-server-ubuntu-1804-2018-3-py2
-    # - env: INSTANCE=prod-server-ubuntu-1604-2018-3-py2
-    # - env: INSTANCE=prod-server-centos-6-2018-3-py2
-    # - env: INSTANCE=prod-server-opensuse-leap-151-2018-3-py2
-    # - env: INSTANCE=prod-server-amazonlinux-1-2018-3-py2
-    - env: INSTANCE=prod-server-arch-base-latest-2018-3-py2
+    - env: INSTANCE=prod-server-arch-base-latest-2019-2-py2
 
     ## Define the release stage that runs `semantic-release`
     - stage: 'release'
