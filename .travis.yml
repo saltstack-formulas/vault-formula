@@ -70,18 +70,19 @@ jobs:
     # Make sure the instances listed below match up with
     # the `platforms` defined in `kitchen.yml`
     - env: INSTANCE=debian-10-master-py3
+    - env: INSTANCE=prod-server-ubuntu-2004-master-py3
     # - env: INSTANCE=prod-server-ubuntu-1804-master-py3
     - env: INSTANCE=prod-server-centos-8-master-py3
+    - env: INSTANCE=prod-server-fedora-32-master-py3
     # - env: INSTANCE=prod-server-fedora-31-master-py3
-    # - env: INSTANCE=prod-server-opensuse-leap-151-master-py3
     # - env: INSTANCE=prod-server-amazonlinux-2-master-py3
     # - env: INSTANCE=prod-server-debian-10-3000-3-py3
     # - env: INSTANCE=prod-server-debian-9-3000-3-py3
-    - env: INSTANCE=prod-server-ubuntu-1804-3000-3-py3
+    # - env: INSTANCE=prod-server-ubuntu-1804-3000-3-py3
     # - env: INSTANCE=prod-server-centos-8-3000-3-py3
     # - env: INSTANCE=prod-server-centos-7-3000-3-py3
     # - env: INSTANCE=prod-server-fedora-31-3000-3-py3
-    - env: INSTANCE=prod-server-opensuse-leap-151-3000-3-py3
+    - env: INSTANCE=prod-server-opensuse-leap-152-3000-3-py3
     - env: INSTANCE=prod-server-amazonlinux-2-3000-3-py3
     # - env: INSTANCE=prod-server-ubuntu-1804-3000-3-py2
     # - env: INSTANCE=prod-server-ubuntu-1604-3000-3-py2
@@ -92,8 +93,7 @@ jobs:
     # - env: INSTANCE=prod-server-ubuntu-1604-2019-2-py3
     # - env: INSTANCE=prod-server-centos-8-2019-2-py3
     # - env: INSTANCE=prod-server-centos-7-2019-2-py3
-    - env: INSTANCE=prod-server-fedora-31-2019-2-py3
-    # - env: INSTANCE=prod-server-opensuse-leap-151-2019-2-py3
+    # - env: INSTANCE=prod-server-fedora-31-2019-2-py3
     # - env: INSTANCE=prod-server-amazonlinux-2-2019-2-py3
     # - env: INSTANCE=prod-server-centos-6-2019-2-py2
     # - env: INSTANCE=prod-server-amazonlinux-1-2019-2-py2
