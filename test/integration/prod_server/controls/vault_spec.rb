@@ -1,13 +1,17 @@
+# frozen_string_literal: true
+
 describe command('/usr/local/bin/vault -version') do
   its(:exit_status) { should eq 0 }
   its(:stderr) { should be_empty }
-  its(:stdout) { should match(/^Vault v[0-9\.]+ \('[0-9a-f]+'\)/) }
+  # https://rubular.com/r/vVeCVuHAmtTYt3
+  its(:stdout) { should match(/^Vault v[0-9.]+ \('[0-9a-f]+'\)/) }
 end
 
 describe command('getcap $(readlink -f /usr/local/bin/vault)') do
   its(:exit_status) { should eq 0 }
   its(:stderr) { should be_empty }
-  its(:stdout) { should match(/\/vault = cap_ipc_lock\+ep$/) }
+  # https://rubular.com/r/JApIMY1oNqGRZ8
+  its(:stdout) { should match(%r{/vault\s?=? cap_ipc_lock[+=]ep$}) }
 end
 
 describe user('vault') do
@@ -34,6 +38,7 @@ describe.one do
 end
 
 describe service('vault') do
+  it { should be_installed }
   it { should be_enabled }
   it { should be_running }
 end
@@ -61,8 +66,8 @@ describe http('http://127.0.0.1:8200/v1/sys/seal-status') do
 end
 
 describe json(content: http('http://127.0.0.1:8200/v1/sys/seal-status').body) do
-    its('initialized') { should eq false }
-    its('sealed') { should eq true }
+  its('initialized') { should eq false }
+  its('sealed') { should eq true }
 end
 
 describe file('/etc/vault/localhost.pem') do
