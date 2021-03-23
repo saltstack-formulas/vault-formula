@@ -312,6 +312,7 @@ suites:
       state_top:
         base:
           '*':
+            - vault._mapdata
             - vault.package
       pillars:
         top.sls:
@@ -328,6 +329,7 @@ suites:
       state_top:
         base:
           '*':
+            - vault._mapdata
             - vault
       pillars:
         top.sls:
@@ -344,6 +346,7 @@ suites:
       state_top:
         base:
           '*':
+            - vault._mapdata
             - vault
       pillars:
         top.sls:
