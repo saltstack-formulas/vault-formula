@@ -1,13 +1,13 @@
 {% from "vault/map.jinja" import vault with context -%}
 {% set vssc = vault.self_signed_cert -%}
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 ###
  # Check for root name.
  ##
 root=$1
 shift
-if [[ -z "$root" ]]; then
+if [ -z "$root" ]; then
   echo "you must pass 2 arguments; first for root name, second for child name"
   exit
 fi
@@ -16,7 +16,7 @@ fi
  # Check for child name
  ##
 child=$1
-if [[ -z "$child" ]]; then
+if [ -z "$child" ]; then
   echo "you must pass 2 arguments; first for root name ($root), second for child name"
   exit
 fi
@@ -38,7 +38,7 @@ root_p12="$root.p12"
 ###
  # Generate the root private key
  ##
-if [[ -e "$root_key" ]]; then
+if [ -e "$root_key" ]; then
   echo "$root_key already exits"
 else
   echo "generate $root_key"
@@ -48,7 +48,7 @@ fi
 ###
  # Genereate the the root privacy enhanced email (PEM)
  ##
-if [[ -e "$root_pem" ]]; then
+if [ -e "$root_pem" ]; then
   echo "$root_pem already exits"
 else
   echo "generate $root_pem"
@@ -58,7 +58,7 @@ fi
 ###
  # Generate the root public key (P12)
  ##
-if [[ -e "$root_p12" ]]; then
+if [ -e "$root_p12" ]; then
   echo "$root_p12 already exits"
 else
   echo "generate $root_p12"
@@ -80,7 +80,7 @@ child_jks="$child_name.jks"
 ###
  # Generate the child private key
  ##
-if [[ -e "$child_key" ]]; then
+if [ -e "$child_key" ]; then
   echo "$child_key already exits"
 else
   echo "generate $child_key"
@@ -88,9 +88,9 @@ else
 fi
 
 ###
- # Genereate the the child privacy enhanced email (PEM)
+ # Generate the the child privacy enhanced email (PEM)
  ##
-if [[ -e "$child_pem" ]]; then
+if [ -e "$child_pem" ]; then
   echo "$child_pem already exits"
 else
   echo "generate $child_csr"
@@ -103,7 +103,7 @@ fi
 ###
  # Generate the child public key (P12)
  ##
-if [[ -e "$child_p12" ]]; then
+if [ -e "$child_p12" ]; then
   echo "$child_p12 already exits"
 else
   echo "generate $child_p12"
@@ -114,11 +114,11 @@ fi
 ###
  # Generate the Java Keystore (JKS)
  ##
-if [[ -e "$child_jks" ]]; then
+if [ -e "$child_jks" ]; then
   echo "$child_jks already exits"
 else
   keytool="keytool"
-  if [[ -n $(command -v $keytool) ]]; then
+  if [ -n "$(command -v $keytool)" ]; then
     echo "generate $child_jks with $root trustedCertEntry"
     $keytool -importcert -trustcacerts -noprompt -file "$root_pem" -destkeystore "$child_jks" -storepass "$pw" \
       -alias "$root" -v
