@@ -2,6 +2,56 @@
 Changelog
 =========
 
+`1.2.4 <https://github.com/saltstack-formulas/vault-formula/compare/v1.2.3...v1.2.4>`_ (2021-04-17)
+-------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **cert-gen.sh:** use ``sh`` not ``bash`` for portability (\ `860f1ba <https://github.com/saltstack-formulas/vault-formula/commit/860f1ba897b7cc7697786ad771f581eb4b41357e>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **commitlint:** ensure ``upstream/master`` uses main repo URL [skip ci] (\ `134d6f5 <https://github.com/saltstack-formulas/vault-formula/commit/134d6f5c88ca3652dd9719fae57c1b72c248fe48>`_\ )
+* **gemfile:** restrict ``train`` gem version until upstream fix [skip ci] (\ `999e3c7 <https://github.com/saltstack-formulas/vault-formula/commit/999e3c7456becf3473776baeb9ac5a11e575922a>`_\ )
+* **gemfile.lock:** add to repo with updated ``Gemfile`` [skip ci] (\ `c6bf47b <https://github.com/saltstack-formulas/vault-formula/commit/c6bf47b84525ada706d386a72bf29205c4bffc45>`_\ )
+* **gemfile+lock:** use ``ssf`` customised ``kitchen-docker`` repo [skip ci] (\ `f3c1007 <https://github.com/saltstack-formulas/vault-formula/commit/f3c10079754aee725a54a15781d1ec5cb450fbf7>`_\ )
+* **gitlab-ci:** add ``rubocop`` linter (with ``allow_failure``\ ) [skip ci] (\ `31a61f8 <https://github.com/saltstack-formulas/vault-formula/commit/31a61f88ee27c9703a7d274853d7bee6614aaa7e>`_\ )
+* **gitlab-ci:** use GitLab CI as Travis CI replacement (\ `0a90aa7 <https://github.com/saltstack-formulas/vault-formula/commit/0a90aa782633570279d391cd2a398868c9f19ca3>`_\ )
+* **kitchen:** avoid using bootstrap for ``master`` instances [skip ci] (\ `6d0cff0 <https://github.com/saltstack-formulas/vault-formula/commit/6d0cff052848a3c9a1334b65112e27c6caba5b91>`_\ )
+* **kitchen:** use ``saltimages`` Docker Hub where available [skip ci] (\ `7403ecd <https://github.com/saltstack-formulas/vault-formula/commit/7403ecda559f3133f66005dca29ef832b0f44a45>`_\ )
+* **kitchen:** use ``stable`` for ``amazonlinux-1`` bootstrap [skip ci] (\ `83930ff <https://github.com/saltstack-formulas/vault-formula/commit/83930ff0bc62f9cfe5cef161b7c735c02b9e1745>`_\ )
+* **kitchen+ci:** use latest pre-salted images (after CVE) [skip ci] (\ `49e5671 <https://github.com/saltstack-formulas/vault-formula/commit/49e56719cbf8ca03568196f7c95fa434229b1776>`_\ )
+* **kitchen+gitlab-ci:** use latest pre-salted images [skip ci] (\ `d96b789 <https://github.com/saltstack-formulas/vault-formula/commit/d96b7899688677fbafc98f4fbdf8f987142b8e8c>`_\ )
+* **kitchen+travis:** add new platforms [skip ci] (\ `98bad0d <https://github.com/saltstack-formulas/vault-formula/commit/98bad0d8eeeae9899bbde3a46062e03cc488a090>`_\ )
+* **kitchen+travis:** adjust matrix to add ``3000.1`` & remove ``2017.7`` (\ `37ce4f4 <https://github.com/saltstack-formulas/vault-formula/commit/37ce4f4f5e5247c81630d04bade8f01c4cdd34a5>`_\ )
+* **kitchen+travis:** adjust matrix to add ``3000.2`` & remove ``2018.3`` [skip ci] (\ `3ffb96f <https://github.com/saltstack-formulas/vault-formula/commit/3ffb96f20aa7b2b15897abc5998996972160eb41>`_\ )
+* **kitchen+travis:** adjust matrix to add ``3000.3`` [skip ci] (\ `fe39213 <https://github.com/saltstack-formulas/vault-formula/commit/fe39213f1065bd950cd2ea44ee9706840031e915>`_\ )
+* **kitchen+travis:** remove ``master-py2-arch-base-latest`` [skip ci] (\ `43e6673 <https://github.com/saltstack-formulas/vault-formula/commit/43e6673c14c99f4767b0fa80886c82efa8ab8fda>`_\ )
+* **pre-commit:** add to formula [skip ci] (\ `034157b <https://github.com/saltstack-formulas/vault-formula/commit/034157bbea2bd5237ab0fcaab47b380b7fc441fd>`_\ )
+* **pre-commit:** enable/disable ``rstcheck`` as relevant [skip ci] (\ `d8b64e3 <https://github.com/saltstack-formulas/vault-formula/commit/d8b64e3f7418d02c97e718506fc06b3e397bb9b3>`_\ )
+* **pre-commit:** finalise ``rstcheck`` configuration [skip ci] (\ `e42dc17 <https://github.com/saltstack-formulas/vault-formula/commit/e42dc17e7af9dfa928b3caf211b222744067a3b7>`_\ )
+* **pre-commit:** update hook for ``rubocop`` [skip ci] (\ `99be484 <https://github.com/saltstack-formulas/vault-formula/commit/99be48451b6a1093df4e34d0ec4d11e8248fd833>`_\ )
+* **travis:** add notifications => zulip [skip ci] (\ `279a5b4 <https://github.com/saltstack-formulas/vault-formula/commit/279a5b447bb24af41c7a9964662d94c271273359>`_\ )
+* **travis:** apply changes from build config validation [skip ci] (\ `d494294 <https://github.com/saltstack-formulas/vault-formula/commit/d494294a98171368cecfc95c5ef29ee4807c454d>`_\ )
+* **travis:** opt-in to ``dpl v2`` to complete build config validation [skip ci] (\ `b8e3f4f <https://github.com/saltstack-formulas/vault-formula/commit/b8e3f4faa46e1b7e089cd4f4d7618bd2de855b0b>`_\ )
+* **travis:** quote pathspecs used with ``git ls-files`` [skip ci] (\ `f4beb33 <https://github.com/saltstack-formulas/vault-formula/commit/f4beb3368dd319474b7ef3b517df23f24f902bc6>`_\ )
+* **travis:** run ``shellcheck`` during lint job [skip ci] (\ `c4090d6 <https://github.com/saltstack-formulas/vault-formula/commit/c4090d695886352314677b5968949a6e9c7fc082>`_\ )
+* **travis:** use ``major.minor`` for ``semantic-release`` version [skip ci] (\ `1ab3801 <https://github.com/saltstack-formulas/vault-formula/commit/1ab38018c69130a62c19006b81a324afdfc1bf67>`_\ )
+* **travis:** use build config validation (beta) [skip ci] (\ `b54b06d <https://github.com/saltstack-formulas/vault-formula/commit/b54b06d8c4c13998107b8eaf5dafb93b3c785d98>`_\ )
+* **workflows/commitlint:** add to repo [skip ci] (\ `98e056a <https://github.com/saltstack-formulas/vault-formula/commit/98e056ada33c8e0c5db4eb0e6a8227f0cfe829dc>`_\ )
+
+Tests
+^^^^^
+
+
+* standardise use of ``share`` suite & ``_mapdata`` state [skip ci] (\ `9877500 <https://github.com/saltstack-formulas/vault-formula/commit/9877500f0a13bbb68d0b7f1e625e9587369e62ef>`_\ )
+* **prod_server:** fix regex for Arch and Tumbleweed as well (\ `9d673fa <https://github.com/saltstack-formulas/vault-formula/commit/9d673fa81d1e25c98ee37e47c9380639b47c75c3>`_\ )
+* **rubocop:** fix remaining violations (\ `d289ce9 <https://github.com/saltstack-formulas/vault-formula/commit/d289ce9303637efc58f13ce71ec521fcad05231e>`_\ )
+
 `1.2.3 <https://github.com/saltstack-formulas/vault-formula/compare/v1.2.2...v1.2.3>`_ (2019-11-07)
 -------------------------------------------------------------------------------------------------------
 
