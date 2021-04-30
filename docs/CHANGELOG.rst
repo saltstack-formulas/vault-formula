@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.2.5 <https://github.com/saltstack-formulas/vault-formula/compare/v1.2.4...v1.2.5>`_ (2021-04-30)
+-------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **gpg:** update Hashicorp GPG key after HCSEC-2021-12 (\ `1b6d000 <https://github.com/saltstack-formulas/vault-formula/commit/1b6d000e9ab44aed7442c41f08ba2638bf19f81f>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen+gitlab:** adjust matrix to add ``3003`` [skip ci] (\ `d7ea9ae <https://github.com/saltstack-formulas/vault-formula/commit/d7ea9ae7f4e082eab964ee98201f1e8be6c7685d>`_\ )
+
 `1.2.4 <https://github.com/saltstack-formulas/vault-formula/compare/v1.2.3...v1.2.4>`_ (2021-04-17)
 -------------------------------------------------------------------------------------------------------
 
