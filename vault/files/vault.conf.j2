@@ -18,7 +18,7 @@ script
 {%- if vault.dev_mode %}
     -dev \
 {% else %}
-    -config="/etc/vault/conf.d/config.json" \
+    -config="{{ vault.config_path }}/vault/conf.d/config.json" \
 {% endif -%}
     >>/var/log/vault.log 2>&1
 end script

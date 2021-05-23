@@ -53,6 +53,7 @@ vault-package-install-file-symlink:
     - target: /opt/vault/bin/vault
     - force: true
 
+{% if grains['os_family'] != "FreeBSD" %}
 vault-package-install-pkg-installed:
   pkg.installed:
     - name: {{ vault.setcap_pkg }}
@@ -64,3 +65,21 @@ vault-package-install-cmd-run:
       - pkg: vault-package-install-pkg-installed
     - onchanges:
       - archive: vault-package-install-archive-extracted
+{% else %}
+vault-package-install-login-file:
+  file.replace:
+    - name: /etc/login.conf
+    - pattern: |
+        ^daemon:\\(?:\n|\r\n?)(.+)$(?:\n|\r\n?)^(\t):tc=default:
+    - flags: ['MULTILINE']
+    - repl: |
+        daemon:\\
+        \t:memorylocked=256M:\\
+        \t:tc=default:
+
+vault-package-install-cmd-run:
+  cmd.run:
+    - name: cap_mkdb /etc/login.conf
+    - watch:
+      - file: vault-package-install-login-file
+{% endif %}
