@@ -166,7 +166,7 @@ centos-7-master-py3: {extends: '.test_instance'}
 # prod-server-opensuse-leap-153-master-py3: {extends: '.test_instance'}
 opensuse-leap-153-master-py3: {extends: '.test_instance'}
 # prod-server-opensuse-leap-152-master-py3: {extends: '.test_instance'}
-opensuse-leap-152-master-py3: {extends: '.test_instance'}
+opensuse-leap-152-master-py3: {extends: '.test_instance_failure_permitted'}
 # prod-server-opensuse-tmbl-latest-master-py3: {extends: '.test_instance_failure_permitted'}
 opensuse-tmbl-latest-master-py3: {extends: '.test_instance_failure_permitted'}
 # prod-server-amazonlinux-2-master-py3: {extends: '.test_instance'}
