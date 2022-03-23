@@ -1,5 +1,42 @@
 # Changelog
 
+# [1.3.0](https://github.com/saltstack-formulas/vault-formula/compare/v1.2.5...v1.3.0) (2022-03-23)
+
+
+### Continuous Integration
+
+* enable Vagrant-based testing using GitHub Actions ([16ec625](https://github.com/saltstack-formulas/vault-formula/commit/16ec6258421265d4ae27e458d699650d7112588f))
+* update linters to latest versions [skip ci] ([b95d2c9](https://github.com/saltstack-formulas/vault-formula/commit/b95d2c99b4b420404692d0633c58cdfd1b98bb4a))
+* **3003.1:** update inc. AlmaLinux, Rocky & `rst-lint` [skip ci] ([f80da8c](https://github.com/saltstack-formulas/vault-formula/commit/f80da8c5b5de81275a3825cacbbe36d03c77049e))
+* **gemfile:** allow rubygems proxy to be provided as an env var [skip ci] ([7f06dc1](https://github.com/saltstack-formulas/vault-formula/commit/7f06dc1ff452641f566d85121aa9fd3af3fe04cc))
+* **gemfile+lock:** use `ssf` customised `inspec` repo [skip ci] ([6eab66e](https://github.com/saltstack-formulas/vault-formula/commit/6eab66eea0d1ba5ce8d049ec990c5bbeb1139710))
+* **gitlab-ci:** allow failure for OpenSUSE Leap 15.2 [skip ci] ([bbb1e69](https://github.com/saltstack-formulas/vault-formula/commit/bbb1e691dd6d351b1439f42dfedacbd9ef792e0b))
+* **kitchen:** move `provisioner` block & update `run_command` [skip ci] ([104b032](https://github.com/saltstack-formulas/vault-formula/commit/104b032e5e46ea27aa646f553e2262a26f890f7a))
+* **kitchen+ci:** update with `3004` pre-salted images/boxes [skip ci] ([8d83b50](https://github.com/saltstack-formulas/vault-formula/commit/8d83b50bd2326e61e31d91d9be75044b93000a29))
+* **kitchen+ci:** update with latest `3003.2` pre-salted images [skip ci] ([c2bd458](https://github.com/saltstack-formulas/vault-formula/commit/c2bd458841a188c1f3f9b61d872576846b4b863a))
+* **kitchen+ci:** update with latest CVE pre-salted images [skip ci] ([dd0fc12](https://github.com/saltstack-formulas/vault-formula/commit/dd0fc12084c27b0c0efeac71849b254cfed4971a))
+* **kitchen+gitlab:** update for new pre-salted images [skip ci] ([3a12912](https://github.com/saltstack-formulas/vault-formula/commit/3a12912ed1a5d17f7593b0458f822416c7e65aa2))
+* add Debian 11 Bullseye & update `yamllint` configuration [skip ci] ([8a1c505](https://github.com/saltstack-formulas/vault-formula/commit/8a1c505b0b054309e0949fcf914eb2fca251a68e))
+* **kitchen+gitlab:** remove Ubuntu 16.04 & Fedora 32 (EOL) [skip ci] ([f044bcb](https://github.com/saltstack-formulas/vault-formula/commit/f044bcbfdc01fcbc949db4a850b609967fac451a))
+* add `arch-master` to matrix and update `.travis.yml` [skip ci] ([120c065](https://github.com/saltstack-formulas/vault-formula/commit/120c06573f40f1a18da26eaab23ea9fd2371332c))
+
+
+### Documentation
+
+* **readme:** add `Testing with Vagrant` section ([208e31b](https://github.com/saltstack-formulas/vault-formula/commit/208e31be37a28b4398c399be140e6fed50a83727))
+
+
+### Features
+
+* **freebsd:** add FreeBSD support ([946e2d0](https://github.com/saltstack-formulas/vault-formula/commit/946e2d0b49e66588301954aac70dce74135f99ec))
+
+
+### Tests
+
+* **pillar:** use `disable_mlock` for FreeBSD (Vagrant) ([94797f2](https://github.com/saltstack-formulas/vault-formula/commit/94797f21d653ed13b0e38d729a30f35ff0591272))
+* update all for FreeBSD ([cb29f9d](https://github.com/saltstack-formulas/vault-formula/commit/cb29f9db1c67b18a34b121992f26bf01b862d832))
+* **system:** add `build_platform_codename` [skip ci] ([664bf33](https://github.com/saltstack-formulas/vault-formula/commit/664bf33446ac6aa465508aa7fb81aa366d7edf21))
+
 ## [1.2.5](https://github.com/saltstack-formulas/vault-formula/compare/v1.2.4...v1.2.5) (2021-04-30)
 
 
