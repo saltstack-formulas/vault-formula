@@ -10,6 +10,7 @@ vault:
   verify_download: true
   self_signed_cert:
     enabled: false
+  config_path: /etc
   config:
     listener:
       tcp:
