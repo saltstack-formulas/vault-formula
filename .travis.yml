@@ -86,6 +86,7 @@ jobs:
     # - env: INSTANCE=prod-server-debian-11-tiamat-py3
     # - env: INSTANCE=prod-server-debian-10-tiamat-py3
     # - env: INSTANCE=prod-server-debian-9-tiamat-py3
+    # - env: INSTANCE=prod-server-ubuntu-2204-tiamat-py3
     # - env: INSTANCE=prod-server-ubuntu-2004-tiamat-py3
     # - env: INSTANCE=prod-server-ubuntu-1804-tiamat-py3
     # - env: INSTANCE=prod-server-centos-stream8-tiamat-py3
@@ -101,6 +102,8 @@ jobs:
     - env: INSTANCE=debian-10-master-py3
     # - env: INSTANCE=prod-server-debian-9-master-py3
     - env: INSTANCE=debian-9-master-py3
+    # - env: INSTANCE=prod-server-ubuntu-2204-master-py3
+    - env: INSTANCE=ubuntu-2204-master-py3
     # - env: INSTANCE=prod-server-ubuntu-2004-master-py3
     - env: INSTANCE=ubuntu-2004-master-py3
     # - env: INSTANCE=prod-server-ubuntu-1804-master-py3
@@ -138,6 +141,7 @@ jobs:
     # - env: INSTANCE=prod-server-debian-11-3004-1-py3
     # - env: INSTANCE=prod-server-debian-10-3004-1-py3
     # - env: INSTANCE=prod-server-debian-9-3004-1-py3
+    # - env: INSTANCE=prod-server-ubuntu-2204-3004-1-py3
     # - env: INSTANCE=prod-server-ubuntu-2004-3004-1-py3
     # - env: INSTANCE=prod-server-ubuntu-1804-3004-1-py3
     # - env: INSTANCE=prod-server-centos-stream8-3004-1-py3

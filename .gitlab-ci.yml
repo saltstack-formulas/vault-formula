@@ -134,6 +134,7 @@ rubocop:
 # prod-server-debian-11-tiamat-py3: {extends: '.test_instance'}
 # prod-server-debian-10-tiamat-py3: {extends: '.test_instance'}
 # prod-server-debian-9-tiamat-py3: {extends: '.test_instance'}
+# prod-server-ubuntu-2204-tiamat-py3: {extends: '.test_instance_failure_permitted'}
 # prod-server-ubuntu-2004-tiamat-py3: {extends: '.test_instance'}
 # prod-server-ubuntu-1804-tiamat-py3: {extends: '.test_instance'}
 # prod-server-centos-stream8-tiamat-py3: {extends: '.test_instance_failure_permitted'}
@@ -149,6 +150,8 @@ debian-11-master-py3: {extends: '.test_instance'}
 debian-10-master-py3: {extends: '.test_instance'}
 # prod-server-debian-9-master-py3: {extends: '.test_instance'}
 debian-9-master-py3: {extends: '.test_instance'}
+# prod-server-ubuntu-2204-master-py3: {extends: '.test_instance_failure_permitted'}
+ubuntu-2204-master-py3: {extends: '.test_instance_failure_permitted'}
 # prod-server-ubuntu-2004-master-py3: {extends: '.test_instance'}
 ubuntu-2004-master-py3: {extends: '.test_instance'}
 # prod-server-ubuntu-1804-master-py3: {extends: '.test_instance'}
@@ -186,6 +189,7 @@ rockylinux-8-master-py3: {extends: '.test_instance'}
 # prod-server-debian-11-3004-1-py3: {extends: '.test_instance'}
 # prod-server-debian-10-3004-1-py3: {extends: '.test_instance'}
 # prod-server-debian-9-3004-1-py3: {extends: '.test_instance'}
+# prod-server-ubuntu-2204-3004-1-py3: {extends: '.test_instance_failure_permitted'}
 # prod-server-ubuntu-2004-3004-1-py3: {extends: '.test_instance'}
 # prod-server-ubuntu-1804-3004-1-py3: {extends: '.test_instance'}
 # prod-server-centos-stream8-3004-1-py3: {extends: '.test_instance_failure_permitted'}
