@@ -116,8 +116,6 @@ jobs:
     # - env: INSTANCE=fedora-36-master-py3
     # - env: INSTANCE=prod-server-fedora-35-master-py3
     # - env: INSTANCE=fedora-35-master-py3
-    # - env: INSTANCE=prod-server-fedora-34-master-py3
-    # - env: INSTANCE=fedora-34-master-py3
     # - env: INSTANCE=prod-server-opensuse-leap-153-master-py3
     - env: INSTANCE=opensuse-leap-153-master-py3
     # - env: INSTANCE=prod-server-opensuse-tmbl-latest-master-py3
@@ -148,7 +146,6 @@ jobs:
     # - env: INSTANCE=prod-server-centos-7-3004-1-py3
     # - env: INSTANCE=prod-server-fedora-36-3004-1-py3
     # - env: INSTANCE=prod-server-fedora-35-3004-1-py3
-    # - env: INSTANCE=prod-server-fedora-34-3004-1-py3
     # - env: INSTANCE=prod-server-amazonlinux-2-3004-1-py3
     # - env: INSTANCE=prod-server-oraclelinux-8-3004-1-py3
     # - env: INSTANCE=prod-server-oraclelinux-7-3004-1-py3
@@ -169,14 +166,6 @@ jobs:
     # - env: INSTANCE=prod-server-oraclelinux-8-3003-4-py3
     # - env: INSTANCE=prod-server-oraclelinux-7-3003-4-py3
     # - env: INSTANCE=prod-server-almalinux-8-3003-4-py3
-    # - env: INSTANCE=prod-server-debian-10-3002-8-py3
-    # - env: INSTANCE=prod-server-debian-9-3002-8-py3
-    # - env: INSTANCE=prod-server-ubuntu-2004-3002-8-py3
-    # - env: INSTANCE=prod-server-ubuntu-1804-3002-8-py3
-    # - env: INSTANCE=prod-server-centos-7-3002-8-py3
-    # - env: INSTANCE=prod-server-amazonlinux-2-3002-8-py3
-    # - env: INSTANCE=prod-server-oraclelinux-8-3002-8-py3
-    # - env: INSTANCE=prod-server-oraclelinux-7-3002-8-py3
 
     ## Define the release stage that runs `semantic-release`
     - stage: 'release'

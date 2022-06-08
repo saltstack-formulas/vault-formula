@@ -164,8 +164,6 @@ centos-7-master-py3: {extends: '.test_instance'}
 # fedora-36-master-py3: {extends: '.test_instance_failure_permitted'}
 # prod-server-fedora-35-master-py3: {extends: '.test_instance'}
 # fedora-35-master-py3: {extends: '.test_instance'}
-# prod-server-fedora-34-master-py3: {extends: '.test_instance'}
-# fedora-34-master-py3: {extends: '.test_instance'}
 # prod-server-opensuse-leap-153-master-py3: {extends: '.test_instance'}
 opensuse-leap-153-master-py3: {extends: '.test_instance'}
 # prod-server-opensuse-tmbl-latest-master-py3: {extends: '.test_instance_failure_permitted'}
@@ -196,7 +194,6 @@ rockylinux-8-master-py3: {extends: '.test_instance'}
 # prod-server-centos-7-3004-1-py3: {extends: '.test_instance'}
 # prod-server-fedora-36-3004-1-py3: {extends: '.test_instance_failure_permitted'}
 # prod-server-fedora-35-3004-1-py3: {extends: '.test_instance'}
-# prod-server-fedora-34-3004-1-py3: {extends: '.test_instance'}
 # prod-server-amazonlinux-2-3004-1-py3: {extends: '.test_instance'}
 # prod-server-oraclelinux-8-3004-1-py3: {extends: '.test_instance'}
 # prod-server-oraclelinux-7-3004-1-py3: {extends: '.test_instance'}
@@ -217,14 +214,6 @@ rockylinux-8-master-py3: {extends: '.test_instance'}
 # prod-server-oraclelinux-8-3003-4-py3: {extends: '.test_instance'}
 # prod-server-oraclelinux-7-3003-4-py3: {extends: '.test_instance'}
 # prod-server-almalinux-8-3003-4-py3: {extends: '.test_instance'}
-# prod-server-debian-10-3002-8-py3: {extends: '.test_instance'}
-# prod-server-debian-9-3002-8-py3: {extends: '.test_instance'}
-# prod-server-ubuntu-2004-3002-8-py3: {extends: '.test_instance'}
-# prod-server-ubuntu-1804-3002-8-py3: {extends: '.test_instance'}
-# prod-server-centos-7-3002-8-py3: {extends: '.test_instance'}
-# prod-server-amazonlinux-2-3002-8-py3: {extends: '.test_instance'}
-# prod-server-oraclelinux-8-3002-8-py3: {extends: '.test_instance'}
-# prod-server-oraclelinux-7-3002-8-py3: {extends: '.test_instance'}
 # yamllint enable rule:line-length
 
 ###############################################################################
