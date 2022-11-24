@@ -2,6 +2,24 @@
 Changelog
 =========
 
+`1.3.1 <https://github.com/saltstack-formulas/vault-formula/compare/v1.3.0...v1.3.1>`_ (2022-11-24)
+-------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* update ``pre-commit`` configuration inc. for pre-commit.ci [skip ci] (\ `715e330 <https://github.com/saltstack-formulas/vault-formula/commit/715e330e19ab4e8c678f1c3373fc78b0f6b17124>`_\ )
+* **kitchen+gitlab:** update for new pre-salted images [skip ci] (\ `8eb304b <https://github.com/saltstack-formulas/vault-formula/commit/8eb304b950d1403d61379cbe04ca71b9850ab0fc>`_\ )
+* **vagrant:** use ``linked_clone`` at all times (inc. CI) [skip ci] (\ `544cf08 <https://github.com/saltstack-formulas/vault-formula/commit/544cf08fe55aeb740e6c56a69a99e5236b57cbe6>`_\ )
+
+Tests
+^^^^^
+
+
+* **install_binary:** update test to use Vault v1.12.0 (\ `cc70b54 <https://github.com/saltstack-formulas/vault-formula/commit/cc70b540a194f66f546f586d46e875ca60e223b7>`_\ )
+* **system.rb:** add support for ``mac_os_x`` [skip ci] (\ `80eab72 <https://github.com/saltstack-formulas/vault-formula/commit/80eab72e0d915d26b198b5355bd42deaf9c2153f>`_\ )
+
 `1.3.0 <https://github.com/saltstack-formulas/vault-formula/compare/v1.2.5...v1.3.0>`_ (2022-03-23)
 -------------------------------------------------------------------------------------------------------
 
