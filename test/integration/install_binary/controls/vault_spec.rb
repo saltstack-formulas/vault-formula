@@ -9,7 +9,7 @@ describe command('/usr/local/bin/vault -version') do
   its(:exit_status) { should eq 0 }
   its(:stderr) { should be_empty }
   its(:stdout) do
-    should match(/^Vault v1.1.0 \('36aa8c8dd1936e10ebd7a4c1d412ae0e6f7900bd'\)/)
+    should match(/^Vault v1.12.0 \(558abfa75702b5dab4c98e86b802fb9aef43b0eb\)/)
   end
 end
 
