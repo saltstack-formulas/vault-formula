@@ -21,3 +21,6 @@ gem 'kitchen-salt', '>= 0.7.2'
 group :vagrant do
   gem 'kitchen-vagrant'
 end
+
+# v7 needed for compatibility with OpenSSL v3
+gem 'net-ssh', '~> 7'
