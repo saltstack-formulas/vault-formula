@@ -13,16 +13,17 @@
   stage_release: &stage_release 'release'
   stage_test: &stage_test 'test'
   # `image`
-  image_commitlint: &image_commitlint 'myii/ssf-commitlint:11'
-  image_dindruby: &image_dindruby 'myii/ssf-dind-ruby:2.7.1-r3'
-  image_precommit: &image_precommit
-    name: 'myii/ssf-pre-commit:2.9.2'
-    entrypoint: ['/bin/bash', '-c']
-  image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest'
-  image_semantic-release: &image_semanticrelease 'myii/ssf-semantic-release:15.14'
+  # yamllint disable rule:line-length
+  image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.86@sha256:8c5ba8332790247b0bdd0e0f7a87fee169aa5405197a9cca4e79be30e45b0269'
+  image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.55@sha256:1e4685e62a274c227c9cb08c80750e9961834777b53bb9e7c5faf6c0d8a07d1e'
+  image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.55@sha256:1e4685e62a274c227c9cb08c80750e9961834777b53bb9e7c5faf6c0d8a07d1e'
+  image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.4.20@sha256:16ef5422c57c3ac998e15993e49ef76a6ff116b1faeecf61bb53309510f2a0b9'
+  image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest@sha256:fe69f9642c7edde46bbd78326d2c42c6e13fc73694efb142e92e206725479328'
+  image_semantic-release: &image_semanticrelease 'myii/ssf-semantic-release:15.14@sha256:374f588420087517a3cc0235e11293bffd72d7a59da3d98d5e69f014ff2a7761'
   # `services`
   services_docker_dind: &services_docker_dind
-    - 'docker:dind'
+    - 'docker:dind@sha256:3a861ec98623bd6014610291123751dc19e0c6d474ac3b38767771791ac0eb5e'
+  # yamllint enable rule:line-length
   # `variables`
   # https://forum.gitlab.com/t/gitlab-com-ci-caching-rubygems/5627/3
   # https://bundler.io/v1.16/bundle_config.html
@@ -131,89 +132,67 @@ rubocop:
 # Make sure the instances listed below match up with
 # the `platforms` defined in `kitchen.yml`
 # yamllint disable rule:line-length
-# prod-server-debian-11-tiamat-py3: {extends: '.test_instance'}
-# prod-server-debian-10-tiamat-py3: {extends: '.test_instance'}
-# prod-server-debian-9-tiamat-py3: {extends: '.test_instance'}
-# prod-server-ubuntu-2204-tiamat-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-ubuntu-2004-tiamat-py3: {extends: '.test_instance'}
-# prod-server-ubuntu-1804-tiamat-py3: {extends: '.test_instance'}
-# prod-server-centos-stream8-tiamat-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-centos-7-tiamat-py3: {extends: '.test_instance'}
-# prod-server-amazonlinux-2-tiamat-py3: {extends: '.test_instance'}
-# prod-server-oraclelinux-8-tiamat-py3: {extends: '.test_instance'}
-# prod-server-oraclelinux-7-tiamat-py3: {extends: '.test_instance'}
-# prod-server-almalinux-8-tiamat-py3: {extends: '.test_instance'}
-# prod-server-rockylinux-8-tiamat-py3: {extends: '.test_instance'}
-# prod-server-debian-11-master-py3: {extends: '.test_instance'}
-debian-11-master-py3: {extends: '.test_instance'}
-# prod-server-debian-10-master-py3: {extends: '.test_instance'}
-debian-10-master-py3: {extends: '.test_instance'}
-# prod-server-debian-9-master-py3: {extends: '.test_instance'}
-debian-9-master-py3: {extends: '.test_instance'}
-# prod-server-ubuntu-2204-master-py3: {extends: '.test_instance_failure_permitted'}
-ubuntu-2204-master-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-ubuntu-2004-master-py3: {extends: '.test_instance'}
-ubuntu-2004-master-py3: {extends: '.test_instance'}
-# prod-server-ubuntu-1804-master-py3: {extends: '.test_instance'}
-ubuntu-1804-master-py3: {extends: '.test_instance'}
-# prod-server-centos-stream8-master-py3: {extends: '.test_instance_failure_permitted'}
-centos-stream8-master-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-centos-7-master-py3: {extends: '.test_instance'}
-centos-7-master-py3: {extends: '.test_instance'}
-# prod-server-fedora-36-master-py3: {extends: '.test_instance_failure_permitted'}
-# fedora-36-master-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-fedora-35-master-py3: {extends: '.test_instance'}
-# fedora-35-master-py3: {extends: '.test_instance'}
-# prod-server-opensuse-leap-153-master-py3: {extends: '.test_instance'}
-opensuse-leap-153-master-py3: {extends: '.test_instance'}
-# prod-server-opensuse-tmbl-latest-master-py3: {extends: '.test_instance_failure_permitted'}
-opensuse-tmbl-latest-master-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-amazonlinux-2-master-py3: {extends: '.test_instance'}
-amazonlinux-2-master-py3: {extends: '.test_instance'}
-# prod-server-oraclelinux-8-master-py3: {extends: '.test_instance'}
-oraclelinux-8-master-py3: {extends: '.test_instance'}
-# prod-server-oraclelinux-7-master-py3: {extends: '.test_instance'}
-oraclelinux-7-master-py3: {extends: '.test_instance'}
-# prod-server-arch-base-latest-master-py3: {extends: '.test_instance'}
-arch-base-latest-master-py3: {extends: '.test_instance'}
-# prod-server-gentoo-stage3-latest-master-py3: {extends: '.test_instance'}
-# gentoo-stage3-latest-master-py3: {extends: '.test_instance'}
-# prod-server-gentoo-stage3-systemd-master-py3: {extends: '.test_instance'}
-# gentoo-stage3-systemd-master-py3: {extends: '.test_instance'}
-# prod-server-almalinux-8-master-py3: {extends: '.test_instance'}
-almalinux-8-master-py3: {extends: '.test_instance'}
-# prod-server-rockylinux-8-master-py3: {extends: '.test_instance'}
-rockylinux-8-master-py3: {extends: '.test_instance'}
-# prod-server-debian-11-3004-1-py3: {extends: '.test_instance'}
-# prod-server-debian-10-3004-1-py3: {extends: '.test_instance'}
-# prod-server-debian-9-3004-1-py3: {extends: '.test_instance'}
-# prod-server-ubuntu-2204-3004-1-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-ubuntu-2004-3004-1-py3: {extends: '.test_instance'}
-# prod-server-ubuntu-1804-3004-1-py3: {extends: '.test_instance'}
-# prod-server-centos-stream8-3004-1-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-centos-7-3004-1-py3: {extends: '.test_instance'}
-# prod-server-fedora-36-3004-1-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-fedora-35-3004-1-py3: {extends: '.test_instance'}
-# prod-server-amazonlinux-2-3004-1-py3: {extends: '.test_instance'}
-# prod-server-oraclelinux-8-3004-1-py3: {extends: '.test_instance'}
-# prod-server-oraclelinux-7-3004-1-py3: {extends: '.test_instance'}
-# prod-server-arch-base-latest-3004-1-py3: {extends: '.test_instance'}
-# prod-server-gentoo-stage3-latest-3004-1-py3: {extends: '.test_instance'}
-# prod-server-gentoo-stage3-systemd-3004-1-py3: {extends: '.test_instance'}
-# prod-server-almalinux-8-3004-1-py3: {extends: '.test_instance'}
-# prod-server-rockylinux-8-3004-1-py3: {extends: '.test_instance'}
-# prod-server-opensuse-leap-153-3004-0-py3: {extends: '.test_instance'}
-# prod-server-opensuse-tmbl-latest-3004-0-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-debian-10-3003-4-py3: {extends: '.test_instance'}
-# prod-server-debian-9-3003-4-py3: {extends: '.test_instance'}
-# prod-server-ubuntu-2004-3003-4-py3: {extends: '.test_instance'}
-# prod-server-ubuntu-1804-3003-4-py3: {extends: '.test_instance'}
-# prod-server-centos-stream8-3003-4-py3: {extends: '.test_instance_failure_permitted'}
-# prod-server-centos-7-3003-4-py3: {extends: '.test_instance'}
-# prod-server-amazonlinux-2-3003-4-py3: {extends: '.test_instance'}
-# prod-server-oraclelinux-8-3003-4-py3: {extends: '.test_instance'}
-# prod-server-oraclelinux-7-3003-4-py3: {extends: '.test_instance'}
-# prod-server-almalinux-8-3003-4-py3: {extends: '.test_instance'}
+# Fedora 41+ will permit failure until this PR is merged into kitchen-docker
+# https://github.com/test-kitchen/kitchen-docker/pull/427 is merged
+# OpenSUSE master branch will fail until zypperpkg module is back in salt core
+# https://github.com/saltstack/great-module-migration/issues/14
+#
+default-debian-12-master-py3: {extends: '.test_instance'}
+default-debian-11-master-py3: {extends: '.test_instance'}
+default-ubuntu-2404-master-py3: {extends: '.test_instance'}
+default-ubuntu-2204-master-py3: {extends: '.test_instance'}
+default-ubuntu-2004-master-py3: {extends: '.test_instance'}
+default-centos-stream9-master-py3: {extends: '.test_instance'}
+default-opensuse-leap-156-master-py3: {extends: '.test_instance_failure_permitted'}
+default-opensuse-leap-155-master-py3: {extends: '.test_instance'}
+default-opensuse-tmbl-latest-master-py3: {extends: '.test_instance'}
+default-amazonlinux-2023-master-py3: {extends: '.test_instance'}
+default-fedora-41-master-py3: {extends: '.test_instance_failure_permitted'}
+default-fedora-40-master-py3: {extends: '.test_instance'}
+default-oraclelinux-9-master-py3: {extends: '.test_instance'}
+default-oraclelinux-8-master-py3: {extends: '.test_instance'}
+default-almalinux-9-master-py3: {extends: '.test_instance'}
+default-almalinux-8-master-py3: {extends: '.test_instance'}
+default-rockylinux-9-master-py3: {extends: '.test_instance'}
+default-rockylinux-8-master-py3: {extends: '.test_instance'}
+default-debian-12-3007-1-py3: {extends: '.test_instance'}
+default-debian-11-3007-1-py3: {extends: '.test_instance'}
+default-ubuntu-2404-3007-1-py3: {extends: '.test_instance'}
+default-ubuntu-2204-3007-1-py3: {extends: '.test_instance'}
+default-ubuntu-2004-3007-1-py3: {extends: '.test_instance'}
+default-centos-stream9-3007-1-py3: {extends: '.test_instance'}
+default-opensuse-leap-156-3007-1-py3: {extends: '.test_instance'}
+default-opensuse-leap-155-3007-1-py3: {extends: '.test_instance'}
+default-opensuse-tmbl-latest-3007-1-py3: {extends: '.test_instance'}
+default-fedora-41-3007-1-py3: {extends: '.test_instance_failure_permitted'}
+default-fedora-40-3007-1-py3: {extends: '.test_instance'}
+default-amazonlinux-2-3007-1-py3: {extends: '.test_instance_failure_permitted'}
+default-amazonlinux-2023-3007-1-py3: {extends: '.test_instance'}
+default-oraclelinux-9-3007-1-py3: {extends: '.test_instance'}
+default-oraclelinux-8-3007-1-py3: {extends: '.test_instance'}
+default-almalinux-9-3007-1-py3: {extends: '.test_instance'}
+default-almalinux-8-3007-1-py3: {extends: '.test_instance'}
+default-rockylinux-9-3007-1-py3: {extends: '.test_instance'}
+default-rockylinux-8-3007-1-py3: {extends: '.test_instance'}
+default-debian-12-3006-10-py3: {extends: '.test_instance'}
+default-debian-11-3006-10-py3: {extends: '.test_instance'}
+default-ubuntu-2404-3006-10-py3: {extends: '.test_instance'}
+default-ubuntu-2204-3006-10-py3: {extends: '.test_instance'}
+default-ubuntu-2004-3006-10-py3: {extends: '.test_instance'}
+default-centos-stream9-3006-10-py3: {extends: '.test_instance'}
+default-opensuse-leap-156-3006-10-py3: {extends: '.test_instance'}
+default-opensuse-leap-155-3006-10-py3: {extends: '.test_instance'}
+default-opensuse-tmbl-latest-3006-10-py3: {extends: '.test_instance'}
+default-fedora-41-3006-10-py3: {extends: '.test_instance_failure_permitted'}
+default-fedora-40-3006-10-py3: {extends: '.test_instance'}
+default-amazonlinux-2-3006-10-py3: {extends: '.test_instance_failure_permitted'}
+default-amazonlinux-2023-3006-10-py3: {extends: '.test_instance'}
+default-oraclelinux-9-3006-10-py3: {extends: '.test_instance'}
+default-oraclelinux-8-3006-10-py3: {extends: '.test_instance'}
+default-almalinux-9-3006-10-py3: {extends: '.test_instance'}
+default-almalinux-8-3006-10-py3: {extends: '.test_instance'}
+default-rockylinux-9-3006-10-py3: {extends: '.test_instance'}
+default-rockylinux-8-3006-10-py3: {extends: '.test_instance'}
 # yamllint enable rule:line-length
 
 ###############################################################################
