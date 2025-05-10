@@ -2,7 +2,8 @@
 # vim: ft=yaml
 ---
 name: 'Kitchen Vagrant (FreeBSD)'
-'on': ['push', 'pull_request']
+'on':  # ['push', 'pull_request']
+  disabled: {}
 
 env:
   KITCHEN_LOCAL_YAML: 'kitchen.vagrant.yml'

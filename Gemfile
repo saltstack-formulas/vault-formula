@@ -18,9 +18,5 @@ gem 'kitchen-docker', git: 'https://gitlab.com/saltstack-formulas/infrastructure
 gem 'kitchen-inspec', '>= 2.5.0'
 gem 'kitchen-salt', '>= 0.7.2'
 
-group :vagrant do
-  gem 'kitchen-vagrant'
-end
-
-# v7 needed for compatibility with OpenSSL v3
-gem 'net-ssh', '~> 7'
+# Avoid the error 'pkeys are immutable on OpenSSL 3.0'
+gem 'net-ssh', '>= 7.0.0'
