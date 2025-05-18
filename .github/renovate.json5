@@ -6,6 +6,7 @@
   ],
   extends: [
     'config:recommended',
+    'github>saltstack-formulas/.github',
   ],
   automergeStrategy: 'merge-commit',
   'git-submodules': {
