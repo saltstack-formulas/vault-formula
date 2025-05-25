@@ -5,3 +5,5 @@ failure_permitted_pattern: master
 formula_name: vault
 supported_oses:
 - Debian
+- Rocky Linux
+- Ubuntu
