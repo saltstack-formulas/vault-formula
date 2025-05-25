@@ -1,4 +1,7 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: v1.1.9
+_commit: v1.2.0
 _src_path: https://github.com/dafyddj/copier-ssf-ci
+failure_permitted_pattern: master
 formula_name: vault
+supported_oses:
+- Debian
