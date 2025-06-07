@@ -2,6 +2,25 @@
 Changelog
 =========
 
+`1.3.2 <https://github.com/saltstack-formulas/vault-formula/compare/v1.3.1...v1.3.2>`_ (2025-06-07)
+-------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* remove FreeBSD from testing (\ `fd1cb10 <https://github.com/saltstack-formulas/vault-formula/commit/fd1cb1093ac08c79cc6bb44168fdf54828936d87>`_\ )
+* **renovate:** extend from ``saltstack-formulas`` Copier preset;remove rest (\ `86909c7 <https://github.com/saltstack-formulas/vault-formula/commit/86909c7adab363001b78f4b82b3de269abad56c7>`_\ )
+* **renovate:** extend from ``saltstack-formulas`` default preset (\ `7f0c895 <https://github.com/saltstack-formulas/vault-formula/commit/7f0c895560be4191f1f805f0e50c5ac046410bea>`_\ )
+* disable Vagrant tests (\ `5b03baf <https://github.com/saltstack-formulas/vault-formula/commit/5b03bafda7bcba9a6e0847f1d4740cd85086e804>`_\ )
+* pick platforms to run CI (\ `7c24898 <https://github.com/saltstack-formulas/vault-formula/commit/7c24898dfd310b6fec550fe199e1c8b045166def>`_\ )
+
+Tests
+^^^^^
+
+
+* test on all supported OSes (\ `bff0a58 <https://github.com/saltstack-formulas/vault-formula/commit/bff0a58c9a42dabee7d94241494d1bad8beef06d>`_\ )
+
 `1.3.1 <https://github.com/saltstack-formulas/vault-formula/compare/v1.3.0...v1.3.1>`_ (2022-11-24)
 -------------------------------------------------------------------------------------------------------
 
