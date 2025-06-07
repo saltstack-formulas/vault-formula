@@ -248,6 +248,10 @@ platforms:
     driver:
       image: saltimages/salt-3006.11-py3:rockylinux-8
 
+##########################################################
+# This file is managed as part of a Copier template.     #
+# Please make your own changes below this comment.       #
+##########################################################
 
 verifier:
   # https://www.inspec.io/
