@@ -2,7 +2,8 @@
 $schema: 'https://docs.renovatebot.com/renovate-schema.json',
 extends: [
   "github>saltstack-formulas/.github",
-  "github>saltstack-formulas/.github:copier"
+  "github>saltstack-formulas/.github:copier",
+  "github>saltstack-formulas/.github:weekly"
 ],
 /**********************************************************
  * This file is managed as part of a Copier template.     *
