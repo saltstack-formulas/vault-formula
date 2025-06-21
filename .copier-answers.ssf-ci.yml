@@ -8,6 +8,7 @@ release_using_gha: true
 renovate_extend_presets:
 - github>saltstack-formulas/.github
 - github>saltstack-formulas/.github:copier
+- github>saltstack-formulas/.github:weekly
 renovate_ignore_presets: []
 supported_oses:
 - AlmaLinux OS
