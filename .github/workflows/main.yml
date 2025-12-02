@@ -25,20 +25,20 @@ jobs:
     name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
-    container: techneg/ci-pre-commit:v2.5.2@sha256:af1cccdd8afe64bbeac5216e3c243e2c3f716f665edf8487a9e920cbfb85c1fb
+    container: techneg/ci-pre-commit:v2.5.17@sha256:1334a7a0ef8b22fdc7933088112bfebfaf6d6733a394a63e236e924f8e8aff54
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - run: | # Needed because of bug #2031 in `actions/checkout`
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           fetch-depth: 0
           fetch-tags: true
           filter: tree:0
       - name: Export `CI_CACHE_ID` from container
         run: echo "CI_CACHE_ID=$(cat /.ci_cache_id)" >> $GITHUB_ENV
-      - uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ~/.cache/pre-commit
           key: "${{ env.CI_CACHE_ID }}|\
@@ -46,11 +46,10 @@ jobs:
           restore-keys: |
             ${{ env.CI_CACHE_ID }}|
       - name: Build cache
-        shell: bash
         run: |
           pre-commit gc
-          echo "Installing hook environments"
-          time pre-commit install-hooks
+          echo "Installing hook environments..."
+          time -f "Hook installation took %E" pre-commit install-hooks
       - name: Run `pre-commit`
         run: |
           pre-commit run --all-files --color always --verbose
@@ -72,24 +71,24 @@ jobs:
           - ubuntu-2404-master
           - ubuntu-2204-master
           - ubuntu-2004-master
-          - debian-12-3007-6
-          - debian-11-3007-6
-          - ubuntu-2404-3007-6
-          - ubuntu-2204-3007-6
-          - ubuntu-2004-3007-6
-          - debian-12-3006-14
-          - debian-11-3006-14
-          - ubuntu-2404-3006-14
-          - ubuntu-2204-3006-14
-          - ubuntu-2004-3006-14
+          - debian-12-3007
+          - debian-11-3007
+          - ubuntu-2404-3007
+          - ubuntu-2204-3007
+          - ubuntu-2004-3007
+          - debian-12-3006
+          - debian-11-3006
+          - ubuntu-2404-3006
+          - ubuntu-2204-3006
+          - ubuntu-2004-3006
     steps:
       - name: Debug on runner (When re-run with "Enable debug logging" checked)
         if: runner.debug
-        uses: mxschmitt/action-tmate@7b6a61a73bbb9793cb80ad69b8dd8ac19261834c # v3.22
+        uses: mxschmitt/action-tmate@c0afd6f790e3a5564914980036ebf83216678101 # v3.23
         with:
           detached: true
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: ruby/setup-ruby@829114fc20da43a41d27359103ec7a63020954d4 # v1.255.0
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: ruby/setup-ruby@8aeb6ff8030dd539317f8e1769a044873b56ea71 # v1.268.0
         with:
           bundler-cache: true
           ruby-version: '3.1'
@@ -102,13 +101,13 @@ jobs:
       issues: write
       pull-requests: write
       checks: read
-    container: techneg/ci-semantic-release:v1.2.1@sha256:d23338a31ae979a4d15b9b4c68c3dea0795210956d2c43dc6eab1791483b7607
+    container: techneg/ci-semantic-release:v1.2.16@sha256:48234e3cd479efc11f82060702c7f6dc6ef0b4db9cf8189bedb6a86bcdd05e31
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - run: |  # Needed due to bug actions/checkout#2031
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       # yamllint disable-line rule:line-length
       - uses: poseidon/wait-for-status-checks@899c768d191b56eef585c18f8558da19e1f3e707 # v0.6.0
         with:
