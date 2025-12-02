@@ -15,15 +15,15 @@
   stage_test: &stage_test 'test'
   # `image`
   # yamllint disable rule:line-length
-  image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.100@sha256:cdcfb678d97a38dc1bdb7010935e5e7e6515131812c76c32a78307860bf8193e'
-  image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.69@sha256:73b50339c27f37232edd5442ed02578dcca653bbac3c7335f6ccd576b5bbadf3'
-  image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.69@sha256:73b50339c27f37232edd5442ed02578dcca653bbac3c7335f6ccd576b5bbadf3'
-  image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.5.2@sha256:af1cccdd8afe64bbeac5216e3c243e2c3f716f665edf8487a9e920cbfb85c1fb'
-  image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest@sha256:fe69f9642c7edde46bbd78326d2c42c6e13fc73694efb142e92e206725479328'
-  image_semantic-release: &image_semanticrelease 'techneg/ci-semantic-release:v1.2.1@sha256:d23338a31ae979a4d15b9b4c68c3dea0795210956d2c43dc6eab1791483b7607'
+  image_commitlint: &image_commitlint 'techneg/ci-commitlint:v1.1.115@sha256:0294e12b860e6467d57868d884df31898f33e3899d739e01e6ed86fc6c1aad62'
+  image_dindruby: &image_dindruby 'techneg/ci-docker-python-ruby:v2.2.85@sha256:e5dc07cdc39d5903d9da29c64e7e24441de773069f83b2b67e93192d602d9adb'
+  image_dindrubybionic: &image_dindrubybionic 'techneg/ci-docker-python-ruby:v2.2.85@sha256:e5dc07cdc39d5903d9da29c64e7e24441de773069f83b2b67e93192d602d9adb'
+  image_precommit: &image_precommit 'techneg/ci-pre-commit:v2.5.18@sha256:faf42c5a068a49bf395978a5a8b354051e510b6470c39aef569e6f17750a1ac3'
+  image_rubocop: &image_rubocop 'pipelinecomponents/rubocop:latest@sha256:74850471782195453cdf91f4a5edf62b6fcc3365c124d4d975c7e87a702040d7'
+  image_semantic-release: &image_semanticrelease 'techneg/ci-semantic-release:v1.2.16@sha256:48234e3cd479efc11f82060702c7f6dc6ef0b4db9cf8189bedb6a86bcdd05e31'
   # `services`
   services_docker_dind: &services_docker_dind
-    - 'docker:28.3.3-dind@sha256:c0872aae4791ff427e6eda52769afa04f17b5cf756f8267e0d52774c99d5c9de'
+    - 'docker:29.0.4-dind@sha256:c9699f4fc7365e8daad3eb48ce3b62dc118b2a5267f7be7bcd3c4e4b2f1cfb4c'
   # yamllint enable rule:line-length
   # `variables`
   # https://forum.gitlab.com/t/gitlab-com-ci-caching-rubygems/5627/3
@@ -175,42 +175,42 @@ rockylinux-8-master: {extends: '.test_instance_failure_permitted'}
 ubuntu-2404-master: {extends: '.test_instance_failure_permitted'}
 ubuntu-2204-master: {extends: '.test_instance_failure_permitted'}
 ubuntu-2004-master: {extends: '.test_instance_failure_permitted'}
-almalinux-9-3007-6: {extends: '.test_instance'}
-almalinux-8-3007-6: {extends: '.test_instance'}
-amazonlinux-2023-3007-6: {extends: '.test_instance'}
-amazonlinux-2-3007-6: {extends: '.test_instance_failure_permitted'}
-centos-stream9-3007-6: {extends: '.test_instance'}
-debian-12-3007-6: {extends: '.test_instance'}
-debian-11-3007-6: {extends: '.test_instance'}
-fedora-41-3007-6: {extends: '.test_instance_failure_permitted'}
-fedora-40-3007-6: {extends: '.test_instance'}
-opensuse-leap-156-3007-6: {extends: '.test_instance'}
-opensuse-tmbl-latest-3007-6: {extends: '.test_instance'}
-oraclelinux-9-3007-6: {extends: '.test_instance'}
-oraclelinux-8-3007-6: {extends: '.test_instance'}
-rockylinux-9-3007-6: {extends: '.test_instance'}
-rockylinux-8-3007-6: {extends: '.test_instance'}
-ubuntu-2404-3007-6: {extends: '.test_instance'}
-ubuntu-2204-3007-6: {extends: '.test_instance'}
-ubuntu-2004-3007-6: {extends: '.test_instance'}
-almalinux-9-3006-14: {extends: '.test_instance'}
-almalinux-8-3006-14: {extends: '.test_instance'}
-amazonlinux-2023-3006-14: {extends: '.test_instance'}
-amazonlinux-2-3006-14: {extends: '.test_instance_failure_permitted'}
-centos-stream9-3006-14: {extends: '.test_instance'}
-debian-12-3006-14: {extends: '.test_instance'}
-debian-11-3006-14: {extends: '.test_instance'}
-fedora-41-3006-14: {extends: '.test_instance_failure_permitted'}
-fedora-40-3006-14: {extends: '.test_instance'}
-opensuse-leap-156-3006-14: {extends: '.test_instance'}
-opensuse-tmbl-latest-3006-14: {extends: '.test_instance'}
-oraclelinux-9-3006-14: {extends: '.test_instance'}
-oraclelinux-8-3006-14: {extends: '.test_instance'}
-rockylinux-9-3006-14: {extends: '.test_instance'}
-rockylinux-8-3006-14: {extends: '.test_instance'}
-ubuntu-2404-3006-14: {extends: '.test_instance'}
-ubuntu-2204-3006-14: {extends: '.test_instance'}
-ubuntu-2004-3006-14: {extends: '.test_instance'}
+almalinux-9-3007: {extends: '.test_instance'}
+almalinux-8-3007: {extends: '.test_instance'}
+amazonlinux-2023-3007: {extends: '.test_instance'}
+amazonlinux-2-3007: {extends: '.test_instance_failure_permitted'}
+centos-stream9-3007: {extends: '.test_instance'}
+debian-12-3007: {extends: '.test_instance'}
+debian-11-3007: {extends: '.test_instance'}
+fedora-41-3007: {extends: '.test_instance_failure_permitted'}
+fedora-40-3007: {extends: '.test_instance'}
+opensuse-leap-156-3007: {extends: '.test_instance'}
+opensuse-tmbl-latest-3007: {extends: '.test_instance'}
+oraclelinux-9-3007: {extends: '.test_instance'}
+oraclelinux-8-3007: {extends: '.test_instance'}
+rockylinux-9-3007: {extends: '.test_instance'}
+rockylinux-8-3007: {extends: '.test_instance'}
+ubuntu-2404-3007: {extends: '.test_instance'}
+ubuntu-2204-3007: {extends: '.test_instance'}
+ubuntu-2004-3007: {extends: '.test_instance'}
+almalinux-9-3006: {extends: '.test_instance'}
+almalinux-8-3006: {extends: '.test_instance'}
+amazonlinux-2023-3006: {extends: '.test_instance'}
+amazonlinux-2-3006: {extends: '.test_instance_failure_permitted'}
+centos-stream9-3006: {extends: '.test_instance'}
+debian-12-3006: {extends: '.test_instance'}
+debian-11-3006: {extends: '.test_instance'}
+fedora-41-3006: {extends: '.test_instance_failure_permitted'}
+fedora-40-3006: {extends: '.test_instance'}
+opensuse-leap-156-3006: {extends: '.test_instance'}
+opensuse-tmbl-latest-3006: {extends: '.test_instance'}
+oraclelinux-9-3006: {extends: '.test_instance'}
+oraclelinux-8-3006: {extends: '.test_instance'}
+rockylinux-9-3006: {extends: '.test_instance'}
+rockylinux-8-3006: {extends: '.test_instance'}
+ubuntu-2404-3006: {extends: '.test_instance'}
+ubuntu-2204-3006: {extends: '.test_instance'}
+ubuntu-2004-3006: {extends: '.test_instance'}
 # yamllint enable rule:line-length
 
 ###############################################################################
