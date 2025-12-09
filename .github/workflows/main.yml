@@ -125,5 +125,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MAINTAINER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          semantic-release
+          semantic-release --dry-run
       - run: echo "::notice ::Workflow success!"
