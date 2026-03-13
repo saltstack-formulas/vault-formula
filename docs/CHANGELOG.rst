@@ -2,6 +2,47 @@
 Changelog
 =========
 
+`1.3.3 <https://github.com/saltstack-formulas/vault-formula/compare/v1.3.2...v1.3.3>`_ (2026-03-13)
+-------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* test a release (\ `c930659 <https://github.com/saltstack-formulas/vault-formula/commit/c93065974b8fb29f1b2ea2fe48eaf5f2dc50a6bc>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* enable tests on GitHub Actions (\ `88db477 <https://github.com/saltstack-formulas/vault-formula/commit/88db47769d67b76c93dbc729a3535eb799b7905f>`_\ )
+* **renovate:** switch to weekly Copier updates (\ `39e285c <https://github.com/saltstack-formulas/vault-formula/commit/39e285c7cb708f794a7966c2b3e36ca85c365466>`_\ )
+* test but don't release using GHA (\ `6527d4f <https://github.com/saltstack-formulas/vault-formula/commit/6527d4f235c24c9ad8bafd8d5f01e93375d90eba>`_\ )
+
+Maintenance
+^^^^^^^^^^^
+
+
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.0.2 (\ `a49e633 <https://github.com/saltstack-formulas/vault-formula/commit/a49e6336352e2b35ebd25d1c881a38142ed2cbe3>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.1.0 (\ `3c7e98c <https://github.com/saltstack-formulas/vault-formula/commit/3c7e98c5accb41f230f59153923abd20ac4d02c0>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.10.2 (\ `1ae2bbe <https://github.com/saltstack-formulas/vault-formula/commit/1ae2bbec6049ac724b6929a68e7f7c9426f738a3>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.10.3 (\ `a73cbc4 <https://github.com/saltstack-formulas/vault-formula/commit/a73cbc413cc85eddd72e69acd23fd9ea0e790f90>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.10.5 (\ `2d25b61 <https://github.com/saltstack-formulas/vault-formula/commit/2d25b612d572cc197cc4264e62f2a105ab1fd9f6>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.10.6 (\ `ddee7eb <https://github.com/saltstack-formulas/vault-formula/commit/ddee7eb17435cbbfc0952a3d6df77bf1f491ff2d>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.2.1 (\ `fbdf90d <https://github.com/saltstack-formulas/vault-formula/commit/fbdf90ddf97c4b1a4058507f1f23c053f3b599cf>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.3.0 (\ `2518a94 <https://github.com/saltstack-formulas/vault-formula/commit/2518a946aa7dc9a80ecd71752a0d36cae2e20ede>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.4.0 (\ `a14e3bd <https://github.com/saltstack-formulas/vault-formula/commit/a14e3bd33fd8734b1a389a412b782541b8b2eb0d>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.5.0 (\ `6c83586 <https://github.com/saltstack-formulas/vault-formula/commit/6c83586ee59bfb75a41b4bdaa9df903e21dc79f5>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.5.1 (\ `b99be8a <https://github.com/saltstack-formulas/vault-formula/commit/b99be8a04a470d380360e59087d09b5df1643662>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.7.0 (\ `43c506b <https://github.com/saltstack-formulas/vault-formula/commit/43c506bcf470ca674d9d1010649a6e9e37897daf>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.7.1 (\ `337b3cd <https://github.com/saltstack-formulas/vault-formula/commit/337b3cd488302d629f3de60f6c64899b6b85b640>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.7.2 (\ `8788c17 <https://github.com/saltstack-formulas/vault-formula/commit/8788c17af5cc69655b9614b035daffdecd697576>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.7.3 (\ `c4a1632 <https://github.com/saltstack-formulas/vault-formula/commit/c4a16320e786bda048636d7c5e319879b8f2cd07>`_\ )
+* **copier:** update template https://github.com/dafyddj/copier-ssf-ci to v2.9.1 (\ `4d61a46 <https://github.com/saltstack-formulas/vault-formula/commit/4d61a462e4489a77371edb4d5fa0f8d33a1e9b4d>`_\ )
+* **deps:** update dependency https://github.com/dafyddj/copier-ssf-ci to v1.6.3 (\ `d37956f <https://github.com/saltstack-formulas/vault-formula/commit/d37956f40110804a515467b69224fa37a798f01b>`_\ )
+* **deps:** update dependency https://github.com/dafyddj/copier-ssf-ci to v2 (\ `aedd695 <https://github.com/saltstack-formulas/vault-formula/commit/aedd69528544aca937270461e485e952f893d28a>`_\ )
+* **deps:** update dependency https://github.com/dafyddj/copier-ssf-ci to v2.0.1 (\ `4bfacef <https://github.com/saltstack-formulas/vault-formula/commit/4bfacef4d19a70518a1d2f97310ca4fb7ef8985a>`_\ )
+
 `1.3.2 <https://github.com/saltstack-formulas/vault-formula/compare/v1.3.1...v1.3.2>`_ (2025-06-07)
 -------------------------------------------------------------------------------------------------------
 
