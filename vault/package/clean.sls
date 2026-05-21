@@ -3,6 +3,7 @@
 
 {% from "vault/map.jinja" import vault with context %}
 
+{% if not vault.install_from_repo %}
 include:
   - .gpg.clean
 
@@ -25,3 +26,12 @@ vault-package-clean-user-absent:
 vault-package-clean-group-absent:
   group.absent:
     - name: vault
+{% else %}
+vault-package-clean-pkg:
+  pkg.removed:
+  - name: {{ vault.package }}
+
+valut-package-clean-repository:
+  pkgrepo.absent:
+  - name: {{ vault.repo }}
+{% endif %}
