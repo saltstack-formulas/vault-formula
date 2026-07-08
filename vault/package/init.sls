@@ -5,6 +5,6 @@
 
 include:
   - .install
-  {%- if vault.verify_download %}
+  {%- if vault.verify_download and not vault.install_from_repo %}
   - .gpg
   {%- endif %}

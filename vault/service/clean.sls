@@ -8,6 +8,8 @@ vault-service-clean-service-dead:
     - name: vault
     - enable: False
 
+{% if not vault.install_from_repo %}
 vault-service-clean-file-absent:
   file.absent:
     - name: {{ vault.service.path }}
+{% endif %}

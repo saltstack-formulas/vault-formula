@@ -144,3 +144,6 @@ vault:
     ZF5q4h4I33PSGDdSvGXn9UMY5Isjpg==
     =7pIB
     -----END PGP PUBLIC KEY BLOCK-----
+
+  install_from_repo: false
+  package: vault
