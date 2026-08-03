@@ -3,6 +3,7 @@
 
 {% from "vault/map.jinja" import vault with context %}
 
+{% if not vault.install_from_repo %}
 vault-package-install-group-present:
   group.present:
     - name: vault
@@ -65,7 +66,7 @@ vault-package-install-cmd-run:
       - pkg: vault-package-install-pkg-installed
     - onchanges:
       - archive: vault-package-install-archive-extracted
-{% else %}
+{% else %}{# FreeBSD #}
 vault-package-install-login-file:
   file.replace:
     - name: /etc/login.conf
@@ -82,4 +83,22 @@ vault-package-install-cmd-run:
     - name: cap_mkdb /etc/login.conf
     - onchanges:
       - file: vault-package-install-login-file
+{% endif %}
+{% else %}{# From repo #}
+vault-package-repository:
+  pkgrepo.managed:
+  - name: {{ vault.repo }}
+  - key_url: {{ vault.repo_key }}
+  - file: /etc/apt/sources.list.d/vault.list
+
+vault-package-installed:
+{% if vault.version == 'latest' %}
+  pkg.latest:
+  - name: {{ vault.package }}
+{% else %}
+  pkg.installed:
+  - pkgs:
+    - {{ vault.package }}{% if vault.version %}: {{ vault.version }}{% endif %}
+{% endif %}
+
 {% endif %}
