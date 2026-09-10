@@ -25,7 +25,7 @@ jobs:
     name: Lint / `pre-commit`
     needs: should-run
     if: fromJSON(needs.should-run.outputs.should-run)
-    container: techneg/ci-pre-commit:v2.5.55@sha256:9b5522126c6076b9fcc6d23a21411674cc348c450aadaca13eaaa882eceeb076
+    container: techneg/ci-pre-commit:v2.5.58@sha256:56e0bf7d16560020b738a2378240643ccb399350a540e906ca1e27009ffe2d68
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -66,26 +66,21 @@ jobs:
       fail-fast: false
       matrix:
         platform:
+          - debian-13-master
           - debian-12-master
-          - debian-11-master
+          - ubuntu-2604-master
           - ubuntu-2404-master
           - ubuntu-2204-master
-          - ubuntu-2004-master
+          - debian-13-3008
           - debian-12-3008
-          - debian-11-3008
+          - ubuntu-2604-3008
           - ubuntu-2404-3008
           - ubuntu-2204-3008
-          - ubuntu-2004-3008
-          - debian-12-3007
-          - debian-11-3007
-          - ubuntu-2404-3007
-          - ubuntu-2204-3007
-          - ubuntu-2004-3007
+          - debian-13-3006
           - debian-12-3006
-          - debian-11-3006
+          - ubuntu-2604-3006
           - ubuntu-2404-3006
           - ubuntu-2204-3006
-          - ubuntu-2004-3006
     steps:
       - name: Debug on runner (When re-run with "Enable debug logging" checked)
         if: runner.debug
@@ -106,7 +101,7 @@ jobs:
       issues: write
       pull-requests: write
       checks: read
-    container: techneg/ci-semantic-release:v1.2.55@sha256:2f11d840b348dd7a7376c19e6893edd91b704fd979ad25f59e92d17518d01a63
+    container: techneg/ci-semantic-release:v1.2.58@sha256:723edbddfa534c7c137f09adec5fb2dfd6286d3fcb9c63688d7e5265ca4dd77e
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -119,11 +114,11 @@ jobs:
           ignore: >
             Dependabot,
             Release / Collect results,
+            Test / Kitchen (debian-13-master),
             Test / Kitchen (debian-12-master),
-            Test / Kitchen (debian-11-master),
+            Test / Kitchen (ubuntu-2604-master),
             Test / Kitchen (ubuntu-2404-master),
             Test / Kitchen (ubuntu-2204-master),
-            Test / Kitchen (ubuntu-2004-master)
           ignore_pattern: ^GitLab CI
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run `semantic-release`
