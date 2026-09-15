@@ -143,3 +143,7 @@ vault:
     ZF5q4h4I33PSGDdSvGXn9UMY5Isjpg==
     =7pIB
     -----END PGP PUBLIC KEY BLOCK-----
+
+  install_from_repo: false  # Set to True to install package rather than extract archive
+  repo: ...  # Might specify a specific repo, if not present in map
+  package: vault  # If package would have any other name

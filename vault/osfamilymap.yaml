@@ -3,6 +3,10 @@
 ---
 Debian:
   setcap_pkg: libcap2-bin
+  repo: 'deb [arch={{ grains["osarch"] }}] https://apt.releases.hashicorp.com
+         {{ grains.get("oscodename", "undefined") }} main'
+  repo_key: "https://apt.releases.hashicorp.com/gpg"
+  repo_configfile: /etc/vault.d/vault.hcl
 
 Suse:
   gpg_pkg: gpg2
